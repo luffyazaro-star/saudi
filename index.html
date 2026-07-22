@@ -1,837 +1,338 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Saudi Marine Offshore | Marine & Offshore Recruitment</title>
-    <meta
-      name="description"
-      content="Saudi Marine Offshore connects skilled marine and offshore professionals with global energy and offshore projects through premium recruitment services."
-    />
+    <title>Saudi Marine Offshore | Global Marine & Offshore Recruitment</title>
+    <meta name="description" content="Saudi Marine Offshore provides premium marine, offshore, oil & gas, and energy workforce solutions across the Middle East and international projects." />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@600;700;800&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
     <style>
       :root {
         --navy: #071a2d;
-        --navy-2: #0b5cad;
-        --navy-3: #0e7490;
+        --blue: #0b5cad;
+        --teal: #0e7490;
         --gold: #d4af37;
-        --gold-2: #b88c1f;
-        --text: #374151;
-        --muted: #4b5563;
-        --line: #dce6f2;
         --bg: #f4f8fc;
-        --bg-soft: #eaf2fb;
+        --surface: #ffffff;
+        --surface-alt: #eaf2fb;
+        --text: #374151;
+        --muted: #64748b;
+        --border: #dce7f1;
         --shadow: 0 16px 40px rgba(7, 26, 45, 0.08);
       }
 
-      * {
-        box-sizing: border-box;
-      }
-
-      html {
-        scroll-behavior: smooth;
-      }
-
+      * { box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
       body {
         margin: 0;
-        font-family: "Inter", sans-serif;
+        font-family: 'Inter', sans-serif;
         color: var(--text);
-        background: var(--bg);
-        overflow-x: hidden;
+        background: linear-gradient(135deg, #f8fbff 0%, var(--bg) 100%);
+        line-height: 1.6;
       }
-
-      h1,
-      h2,
-      h3,
-      h4 {
-        font-family: "Poppins", sans-serif;
+      a { color: inherit; text-decoration: none; }
+      img { max-width: 100%; display: block; }
+      .container { width: min(1180px, calc(100% - 2rem)); margin: 0 auto; }
+      section { padding: 3.2rem 0; }
+      h1,h2,h3,h4 { font-family: 'Poppins', sans-serif; color: var(--navy); margin: 0 0 1rem; }
+      .eyebrow {
+        display: inline-block;
+        color: var(--gold);
         font-weight: 700;
+        letter-spacing: 0.28em;
+        text-transform: uppercase;
+        font-size: 0.78rem;
+        margin-bottom: 0.9rem;
       }
-
-      h1,
-      h2 {
-        background: linear-gradient(90deg, var(--navy-2), var(--navy-3));
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 46px;
+        padding: 0.9rem 1.25rem;
+        border-radius: 999px;
+        font-weight: 700;
+        border: none;
+        cursor: pointer;
+        transition: all .25s ease;
       }
-
-      body::before,
-      body::after {
-        content: "";
-        position: fixed;
-        inset: auto 0 0 0;
-        height: 160px;
-        background: linear-gradient(90deg, rgba(212, 175, 55, 0.16), transparent 70%, rgba(30, 90, 168, 0.12));
-        pointer-events: none;
-        animation: wave 14s linear infinite;
-      }
-
-      body::after {
-        opacity: 0.35;
-        transform: translateX(-8%);
-        animation-duration: 20s;
-      }
-
-      @keyframes wave {
-        from { transform: translateX(-8%); }
-        to { transform: translateX(8%); }
-      }
-
-      a {
-        color: inherit;
-        text-decoration: none;
-      }
-
-      img {
-        max-width: 100%;
-        display: block;
-      }
-
-      .container {
-        width: min(1200px, calc(100% - 2rem));
-        margin: 0 auto;
-      }
-
-      .section-shell {
-        padding: 1.1rem;
-        border-radius: 24px;
-        background: var(--bg-soft);
-        border: 1px solid rgba(11, 31, 58, 0.06);
+      .btn:hover { transform: translateY(-2px); }
+      .btn-primary { background: linear-gradient(135deg, var(--gold), #f0c95d); color: var(--navy); }
+      .btn-secondary { background: rgba(255,255,255,.14); color: #fff; border: 1px solid rgba(255,255,255,.25); }
+      .pill {
+        display: inline-block;
+        padding: 0.45rem 0.75rem;
+        border-radius: 999px;
+        background: rgba(11,92,173,.08);
+        color: var(--blue);
+        font-size: 0.8rem;
+        font-weight: 600;
       }
 
       .topbar {
         position: sticky;
         top: 0;
         z-index: 100;
-        background: rgba(244, 248, 252, 0.96);
-        border-bottom: 1px solid var(--line);
-        backdrop-filter: blur(12px);
+        background: rgba(244,248,252,.95);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid var(--border);
       }
-
-      .topbar .container {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 1rem 0;
-        gap: 1rem;
-      }
-
-      .brand {
-        display: flex;
-        align-items: center;
-        gap: 0.85rem;
-        font-weight: 800;
-        letter-spacing: 0.03em;
-        text-transform: uppercase;
-        color: var(--navy);
-      }
-
-      .brand-logo {
-        height: 54px;
-        width: auto;
-        border-radius: 14px;
-        object-fit: contain;
-        box-shadow: 0 8px 24px rgba(212, 175, 55, 0.18);
-        background: rgba(255, 255, 255, 0.7);
-        padding: 0.25rem;
-      }
-
-      .brand-name {
-        font-size: 0.95rem;
-        line-height: 1.2;
-      }
-
-      .nav-links {
-        display: flex;
-        gap: 1.2rem;
-        color: var(--navy);
-        font-size: 0.95rem;
-        align-items: center;
-      }
-
-      .nav-links a:hover,
-      .nav-links a.active {
-        color: var(--navy-2);
-        border-bottom: 2px solid var(--gold);
-        padding-bottom: 0.2rem;
-      }
-
-      .lang-switch {
-        border: 1px solid rgba(11, 31, 58, 0.12);
-        color: var(--navy);
-        background: var(--bg-soft);
-        padding: 0.6rem 0.9rem;
-        border-radius: 999px;
-        cursor: pointer;
-        font-weight: 600;
-      }
+      .topbar .container { display: flex; align-items: center; justify-content: space-between; padding: 1rem 0; gap: 1rem; }
+      .brand { display: flex; align-items: center; gap: .75rem; font-weight: 800; color: var(--navy); text-transform: uppercase; letter-spacing: .04em; }
+      .brand img { width: 52px; height: 52px; border-radius: 14px; object-fit: contain; background: #fff; padding: .2rem; box-shadow: 0 8px 24px rgba(212,175,55,.16); }
+      .nav-links { display: flex; gap: 1.1rem; color: var(--navy); font-weight: 600; }
+      .nav-links a:hover { color: var(--blue); }
+      .menu-toggle { display: none; background: transparent; border: none; font-size: 1.2rem; color: var(--navy); }
 
       .hero {
         position: relative;
-        min-height: 100vh;
+        min-height: 90vh;
         display: grid;
         align-items: center;
-        background:
-          linear-gradient(135deg, rgba(7, 26, 45, 0.6) 0%, rgba(11, 91, 173, 0.45) 50%, rgba(14, 116, 144, 0.5) 100%),
-          url("https://i.ibb.co/MyYds3G7/Screenshot-2026-07-22-130007.png") center/cover no-repeat;
-        isolation: isolate;
         color: white;
+        background: linear-gradient(135deg, rgba(7,26,45,.9) 0%, rgba(11,92,173,.72) 50%, rgba(14,116,144,.8) 100%), url('https://images.unsplash.com/photo-1578575437130-527eed3abbec?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
         overflow: hidden;
       }
-
-      .hero::before {
-        content: "";
-        position: absolute;
-        inset: 0;
-        background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(11, 31, 58, 0.25));
-        z-index: -1;
-      }
-
       .hero::after {
-        content: "";
-        position: absolute;
-        left: -10%;
-        right: -10%;
-        bottom: -4px;
-        height: 140px;
-        background: linear-gradient(180deg, transparent, rgba(255, 255, 255, 0.9));
-        clip-path: polygon(0 40%, 8% 38%, 16% 44%, 24% 36%, 32% 40%, 40% 34%, 48% 38%, 56% 30%, 64% 36%, 72% 28%, 80% 34%, 88% 30%, 100% 38%, 100% 100%, 0 100%);
-        z-index: 0;
-        opacity: 0.9;
-      }
-
-      .hero .container {
-        display: grid;
-        grid-template-columns: 1.2fr 0.8fr;
-        gap: 2rem;
-        padding: 5rem 0 6rem;
-        position: relative;
-        z-index: 1;
-        align-items: center;
-      }
-
-      .eyebrow {
-        color: var(--gold);
-        font-size: 0.9rem;
-        letter-spacing: 0.32em;
-        text-transform: uppercase;
-        margin-bottom: 1rem;
-        font-weight: 700;
-      }
-
-      h1,
-      h2,
-      h3 {
-        line-height: 1.15;
-      }
-
-      .hero h1 {
-        font-size: clamp(2.4rem, 4.2vw, 4.5rem);
-        margin: 0 0 1rem;
-        font-weight: 800;
-        letter-spacing: -0.02em;
-        text-shadow: 0 8px 30px rgba(0, 0, 0, 0.22);
-      }
-
-      .hero p {
-        font-size: 1.06rem;
-        color: #eef3f8;
-        margin-bottom: 1.5rem;
-        line-height: 1.7;
-        max-width: 720px;
-      }
-
-      .hero-actions {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 1rem;
-        margin: 1.8rem 0 1.4rem;
-      }
-
-      .btn {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        padding: 0.95rem 1.45rem;
-        border-radius: 999px;
-        font-weight: 700;
-        transition: transform 0.2s ease, box-shadow 0.2s ease;
-      }
-
-      .btn:hover {
-        transform: translateY(-2px);
-      }
-
-      .btn-primary {
-        background: linear-gradient(135deg, var(--navy), var(--navy-2));
-        color: white;
-        box-shadow: 0 12px 28px rgba(11, 31, 58, 0.16);
-      }
-
-      .btn-primary:hover {
-        background: linear-gradient(135deg, var(--gold), var(--gold-2));
-        color: var(--navy);
-      }
-
-      .btn-secondary {
-        border: 1px solid rgba(255, 255, 255, 0.25);
-        background: rgba(255, 255, 255, 0.12);
-        color: white;
-      }
-
-      .trust-badges {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.7rem;
-        margin-top: 1rem;
-      }
-
-      .trust-badge {
-        padding: 0.55rem 0.8rem;
-        border-radius: 999px;
-        background: rgba(255, 255, 255, 0.16);
-        backdrop-filter: blur(6px);
-        border: 1px solid rgba(255, 255, 255, 0.15);
-        font-size: 0.9rem;
-        color: #f3f7fc;
-      }
-
-      .stats {
-        display: grid;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 1rem;
-        margin-top: 1.3rem;
-      }
-
-      .stat-card {
-        padding: 1rem;
-        border: 1px solid rgba(212, 175, 55, 0.26);
-        border-radius: 16px;
-        background: rgba(255, 255, 255, 0.16);
-        backdrop-filter: blur(8px);
-      }
-
-      .stat-card strong {
-        display: block;
-        font-size: 1.35rem;
-        color: var(--gold);
-      }
-
-      .hero-panel {
-        padding: 1.4rem;
-        background: rgba(255, 255, 255, 0.95);
-        color: var(--text);
-        border: 1px solid rgba(11, 31, 58, 0.08);
-        border-radius: 24px;
-        box-shadow: var(--shadow);
-      }
-
-      .hero-panel h3 {
-        margin-top: 0;
-        font-size: 1.2rem;
-      }
-
-      .hero-panel ul {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-        display: grid;
-        gap: 0.75rem;
-        color: var(--muted);
-      }
-
-      .hero-panel li {
-        display: flex;
-        gap: 0.65rem;
-        align-items: center;
-      }
-
-      .hero-panel li::before {
-        content: "✦";
-        color: var(--gold);
-      }
-
-      details summary {
-        cursor: pointer;
-        font-weight: 600;
-        color: var(--navy);
-      }
-
-      details p {
-        margin-top: 0.7rem;
-        color: var(--muted);
-      }
-
-      section {
-        padding: 5rem 0;
-        background: var(--bg);
-      }
-
-      .section-head {
-        display: flex;
-        align-items: end;
-        justify-content: space-between;
-        gap: 1rem;
-        margin-bottom: 2rem;
-        padding-bottom: 0.3rem;
-        border-bottom: 1px solid rgba(11, 31, 58, 0.08);
-      }
-
-      .section-head h2 {
-        font-size: clamp(1.6rem, 2.3vw, 2.2rem);
-        margin: 0;
-      }
-
-      .section-head p {
-        color: var(--muted);
-        margin: 0.25rem 0 0;
-      }
-
-      .card-grid {
-        display: grid;
-        gap: 1rem;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        align-items: stretch;
-      }
-
-      .card {
-        background: #ffffff;
-        border: 1px solid var(--line);
-        border-radius: 16px;
-        padding: 1.25rem;
-        box-shadow: var(--shadow);
-        height: 100%;
-      }
-
-      .card:hover {
-        border-color: rgba(30, 90, 168, 0.24);
-        transform: translateY(-3px);
-        transition: all 0.25s ease;
-      }
-
-      .card h3,
-      .card h4 {
-        margin: 0 0 0.7rem;
-      }
-
-      .card p,
-      .card li {
-        color: var(--muted);
-        line-height: 1.7;
-      }
-
-      .service-list,
-      .doc-list {
-        display: grid;
-        gap: 0.55rem;
-        padding: 0;
-        margin: 0;
-        list-style: none;
-      }
-
-      .service-list li,
-      .doc-list li {
-        padding: 0.7rem 0.8rem;
-        border-radius: 12px;
-        background: rgba(255, 255, 255, 0.04);
-      }
-
-      .filter-bar {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.75rem;
-        margin-bottom: 1.3rem;
-      }
-
-      .filter-btn {
-        padding: 0.7rem 1rem;
-        border: 1px solid rgba(11, 31, 58, 0.12);
-        background: var(--bg-soft);
-        color: var(--navy);
-        border-radius: 999px;
-        cursor: pointer;
-        font-weight: 600;
-      }
-
-      .filter-btn.active {
-        background: linear-gradient(135deg, var(--navy), var(--navy-2));
-        color: white;
-      }
-
-      .vacancy-grid {
-        display: grid;
-        gap: 1rem;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        align-items: stretch;
-      }
-
-      .vacancy-card {
-        padding: 1.2rem;
-        border-radius: 18px;
-        background: #ffffff;
-        border: 1px solid var(--line);
-      }
-
-      .vacancy-card h4 {
-        margin: 0 0 0.4rem;
-      }
-
-      .vacancy-card .meta {
-        color: var(--gold);
-        font-size: 0.9rem;
-        margin-bottom: 0.7rem;
-      }
-
-      .pill-row {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.6rem;
-        margin-top: 0.8rem;
-      }
-
-      .pill {
-        display: inline-block;
-        padding: 0.4rem 0.7rem;
-        border-radius: 999px;
-        color: var(--gold);
-        background: rgba(240, 178, 79, 0.12);
-        font-size: 0.8rem;
-      }
-
-      .timeline {
-        display: grid;
-        grid-template-columns: repeat(7, minmax(0, 1fr));
-        gap: 1rem;
-        align-items: stretch;
-      }
-
-      .step {
-        padding: 1rem;
-        border-radius: 18px;
-        border: 1px solid rgba(11, 31, 58, 0.12);
-        background: var(--bg-soft);
-      }
-
-      .step strong {
-        display: block;
-        margin-bottom: 0.5rem;
-        color: var(--gold);
-      }
-
-      .marquee {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.8rem;
-        margin-top: 1rem;
-      }
-
-      .marquee span {
-        padding: 0.65rem 1rem;
-        border: 1px solid rgba(11, 31, 58, 0.12);
-        border-radius: 999px;
-        background: var(--bg-soft);
-      }
-
-      .gallery-grid {
-        display: grid;
-        grid-template-columns: repeat(4, minmax(0, 1fr));
-        gap: 1rem;
-        align-items: stretch;
-      }
-
-      .gallery-item {
-        border-radius: 18px;
-        overflow: hidden;
-        min-height: 180px;
-        background-size: cover;
-        background-position: center;
-        position: relative;
-        border: 1px solid var(--line);
-      }
-
-      .gallery-item::after {
-        content: attr(data-label);
+        content: '';
         position: absolute;
         inset: auto 0 0 0;
-        padding: 0.85rem 1rem;
-        background: linear-gradient(180deg, transparent, rgba(6, 18, 31, 0.9));
-        font-weight: 600;
+        height: 90px;
+        background: linear-gradient(180deg, transparent, rgba(255,255,255,.96));
       }
-
-      .testimonial-grid,
-      .faq-grid {
-        display: grid;
-        gap: 1rem;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
+      .hero .container { display: grid; grid-template-columns: 1.2fr .8fr; gap: 2rem; padding: 4rem 0 4.6rem; position: relative; z-index: 1; }
+      .hero h1 { font-size: clamp(2.4rem, 4.2vw, 4.6rem); color: #fff; line-height: 1.06; margin-bottom: 1rem; }
+      .hero p { color: #eef6ff; font-size: 1.05rem; max-width: 700px; }
+      .hero-actions { display: flex; flex-wrap: wrap; gap: .9rem; margin: 1.4rem 0 1.2rem; }
+      .hero-badges { display: flex; flex-wrap: wrap; gap: .65rem; margin-top: 1rem; }
+      .hero-badges span {
+        padding: .55rem .8rem;
+        border-radius: 999px;
+        background: rgba(255,255,255,.14);
+        border: 1px solid rgba(255,255,255,.16);
+        font-size: .9rem;
       }
-
-      .quote {
-        font-size: 1rem;
-        color: #dce7ef;
-        line-height: 1.75;
-      }
-
-      .contact-grid {
-        display: grid;
-        grid-template-columns: 0.9fr 1.1fr;
-        gap: 1.2rem;
-        align-items: start;
-      }
-
-      .contact-card,
-      .form-card {
-        padding: 1.4rem;
-        border-radius: 20px;
-        background: #ffffff;
-        border: 1px solid var(--line);
-      }
-
-      .contact-list {
-        display: grid;
-        gap: 0.7rem;
-        margin-top: 1rem;
-      }
-
-      .contact-list div {
-        color: var(--muted);
-      }
-
-      form {
-        display: grid;
-        gap: 0.85rem;
-      }
-
-      input,
-      textarea,
-      select {
-        width: 100%;
-        border: 1px solid rgba(255, 255, 255, 0.12);
-        background: rgba(255, 255, 255, 0.06);
+      .hero-card {
+        background: rgba(255,255,255,.95);
         color: var(--text);
-        border-radius: 12px;
-        padding: 0.85rem 0.95rem;
-        font: inherit;
+        padding: 1.3rem;
+        border-radius: 24px;
+        box-shadow: var(--shadow);
+        border: 1px solid rgba(7,26,45,.08);
       }
+      .hero-card h3 { font-size: 1.15rem; margin-bottom: .8rem; }
+      .hero-card ul { list-style: none; padding: 0; margin: 0; display: grid; gap: .7rem; }
+      .hero-card li { display: flex; gap: .6rem; align-items: flex-start; color: var(--muted); }
+      .hero-card li i { color: var(--gold); margin-top: .25rem; }
 
-      textarea {
-        min-height: 110px;
-        resize: vertical;
+      .stats-grid {
+        display: grid; grid-template-columns: repeat(5, minmax(0,1fr)); gap: 1rem; margin-top: -2rem; position: relative; z-index: 2;
       }
+      .stat-card {
+        background: var(--surface);
+        padding: 1rem;
+        border-radius: 18px;
+        box-shadow: var(--shadow);
+        border: 1px solid var(--border);
+        text-align: center;
+      }
+      .stat-card strong { display: block; font-size: 1.3rem; color: var(--blue); margin-bottom: .2rem; }
+      .stat-card span { color: var(--muted); font-size: .9rem; }
 
-      .whatsapp-btn {
-        position: fixed;
-        right: 1.2rem;
-        bottom: 1.2rem;
-        width: 58px;
-        height: 58px;
-        border-radius: 50%;
+      .section-head { display: flex; justify-content: space-between; align-items: end; gap: 1rem; margin-bottom: 1.4rem; }
+      .section-head p { margin: 0; color: var(--muted); }
+      .scroll-indicator {
+        margin-top: 1.4rem;
+        display: inline-flex;
+        align-items: center;
+        gap: .55rem;
+        color: rgba(255,255,255,.9);
+        font-size: .9rem;
+        letter-spacing: .08em;
+        text-transform: uppercase;
+      }
+      .scroll-indicator i { animation: bounce 1.4s infinite; }
+      @keyframes bounce { 0%,100%{transform:translateY(0);} 50%{transform:translateY(4px);} }
+      .grid-2, .grid-3, .grid-4 { display: grid; gap: 1rem; }
+      .grid-2 { grid-template-columns: repeat(2, minmax(0,1fr)); }
+      .grid-3 { grid-template-columns: repeat(3, minmax(0,1fr)); }
+      .grid-4 { grid-template-columns: repeat(4, minmax(0,1fr)); }
+      .card {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 20px;
+        padding: 1.1rem;
+        box-shadow: var(--shadow);
+      }
+      .card h3 { font-size: 1.05rem; margin-bottom: .65rem; }
+      .card p, .card li { color: var(--muted); }
+
+      .overview-grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: 1rem; }
+      .quote-box { background: linear-gradient(135deg, var(--navy), var(--blue)); color: white; border-radius: 24px; padding: 1.5rem; }
+      .quote-box p { color: rgba(255,255,255,.86); }
+
+      .services-grid { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: .9rem; }
+      .service-card i { font-size: 1.4rem; color: var(--gold); margin-bottom: .6rem; }
+      .service-card ul { padding-left: 1rem; margin: .5rem 0 0; }
+      .service-card li { margin-bottom: .35rem; }
+
+      .vacancy-grid { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: .9rem; }
+      .vacancy-card { background: var(--surface); border: 1px solid var(--border); border-radius: 20px; padding: 1.2rem; box-shadow: var(--shadow); }
+      .vacancy-card .meta { color: var(--blue); font-weight: 700; font-size: .95rem; margin-bottom: .45rem; }
+      .pill-row { display: flex; flex-wrap: wrap; gap: .45rem; margin-top: .8rem; }
+
+      .timeline { display: grid; grid-template-columns: repeat(5, minmax(0,1fr)); gap: 1rem; }
+      .step { background: var(--surface); border: 1px solid var(--border); border-radius: 18px; padding: 1rem; text-align: center; }
+      .step strong { display: block; font-size: 1.25rem; color: var(--gold); margin-bottom: .4rem; }
+
+      .logos { display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center; }
+      .logo-chip { padding: .85rem 1rem; background: var(--surface); border-radius: 999px; box-shadow: var(--shadow); color: var(--muted); font-weight: 600; border: 1px solid var(--border); }
+
+      .testimonial-grid { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: .9rem; }
+      .testimonial { background: var(--surface); border: 1px solid var(--border); border-radius: 20px; padding: 1.2rem; box-shadow: var(--shadow); }
+      .testimonial .stars { color: var(--gold); margin-bottom: .5rem; }
+
+      .faq-list { display: grid; gap: .7rem; }
+      .faq-item { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; overflow: hidden; box-shadow: var(--shadow); }
+      .faq-item button { width: 100%; background: transparent; border: none; text-align: left; padding: 1rem 1.1rem; font: inherit; font-weight: 700; color: var(--navy); cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
+      .faq-answer { display: none; padding: 0 1.1rem 1rem; color: var(--muted); }
+      .faq-item.active .faq-answer { display: block; }
+
+      .gallery-grid { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 1rem; }
+      .gallery-card { min-height: 220px; border-radius: 20px; overflow: hidden; position: relative; box-shadow: var(--shadow); }
+      .gallery-card img { width: 100%; height: 100%; object-fit: cover; }
+      .gallery-card::after { content: attr(data-title); position: absolute; inset: auto 0 0 0; padding: .9rem 1rem; background: linear-gradient(180deg, transparent, rgba(7,26,45,.9)); color: white; font-weight: 700; }
+
+      .news-grid { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 1rem; }
+      .news-card { background: var(--surface); border-radius: 20px; overflow: hidden; box-shadow: var(--shadow); border: 1px solid var(--border); }
+      .news-card .news-body { padding: 1rem; }
+
+      .contact-grid { display: grid; grid-template-columns: .95fr 1.05fr; gap: 1rem; }
+      .contact-card, .form-card { background: var(--surface); border: 1px solid var(--border); border-radius: 24px; padding: 1.2rem; box-shadow: var(--shadow); }
+      .split-card {
         display: grid;
-        place-items: center;
-        background: linear-gradient(135deg, #25d366, #128c7e);
-        color: white;
-        box-shadow: 0 12px 26px rgba(0, 0, 0, 0.28);
-        font-size: 1.35rem;
-        z-index: 120;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 1rem;
+        align-items: stretch;
       }
+      .download-card {
+        background: linear-gradient(135deg, var(--navy), var(--blue));
+        color: white;
+        border-radius: 24px;
+        padding: 1.4rem;
+        box-shadow: var(--shadow);
+      }
+      .download-card .btn { background: var(--gold); color: var(--navy); }
+      form { display: grid; gap: .8rem; }
+      input, textarea, select { width: 100%; padding: .9rem 1rem; border-radius: 12px; border: 1px solid var(--border); font: inherit; background: #f9fbfd; }
+      textarea { min-height: 110px; resize: vertical; }
 
       footer {
-        padding: 2.6rem 0 2rem;
-        border-top: 1px solid rgba(255, 255, 255, 0.12);
+        background: linear-gradient(135deg, #071a2d 0%, #0b2d4e 100%);
         color: white;
-        background: linear-gradient(135deg, var(--navy), var(--navy-3));
+        padding: 0 0 1.2rem;
+        border-top: 3px solid var(--gold);
       }
-
-      .footer-grid {
-        display: grid;
-        grid-template-columns: 1.2fr 0.9fr 0.9fr 1fr;
-        gap: 1.6rem;
-        align-items: start;
+      .footer-top {
+        padding: 3rem 0 2rem;
+        background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
       }
-
-      .footer-block {
+      .newsletter-card {
+        background: rgba(255,255,255,0.06);
+        border: 1px solid rgba(255,255,255,0.12);
+        border-radius: 24px;
+        padding: 1.3rem 1.4rem;
         display: flex;
-        flex-direction: column;
-        gap: 0.7rem;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+        margin-bottom: 1.8rem;
+        box-shadow: 0 12px 32px rgba(0,0,0,0.16);
       }
-
-      .footer-block h4 {
-        margin: 0 0 0.2rem;
-        color: var(--gold);
-        font-size: 0.95rem;
-        text-transform: uppercase;
-        letter-spacing: 0.12em;
-      }
-
-      .footer-brand {
+      .newsletter-card h3 { color: white; margin-bottom: .3rem; }
+      .newsletter-card p { color: #c9d4e2; margin: 0; }
+      .newsletter-form {
         display: flex;
-        flex-direction: column;
-        gap: 0.6rem;
-      }
-
-      .footer-brand p {
-        margin: 0;
-        color: rgba(255, 255, 255, 0.78);
-        line-height: 1.7;
-      }
-
-      .footer-links {
-        display: flex;
-        flex-direction: column;
-        gap: 0.55rem;
+        gap: .6rem;
         flex-wrap: wrap;
       }
-
-      .footer-links a {
-        color: rgba(255, 255, 255, 0.82);
-        transition: color 0.2s ease;
+      .newsletter-form input {
+        min-width: 260px;
+        border: 1px solid rgba(255,255,255,0.16);
+        background: rgba(255,255,255,0.08);
+        color: white;
       }
-
-      .footer-links a:hover {
-        color: var(--gold);
+      .newsletter-form button {
+        border: none;
+        background: var(--gold);
+        color: var(--navy);
+        padding: 0.8rem 1rem;
+        border-radius: 999px;
+        font-weight: 700;
+        cursor: pointer;
       }
-
-      .footer-contact {
+      .cert-strip {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0,1fr));
+        gap: .8rem;
+        margin: 1rem 0 2rem;
+      }
+      .cert-item {
         display: flex;
-        flex-direction: column;
-        gap: 0.6rem;
-        color: rgba(255, 255, 255, 0.82);
+        align-items: center;
+        gap: .7rem;
+        padding: .85rem 1rem;
+        border-radius: 14px;
+        background: rgba(255,255,255,0.05);
+        border: 1px solid rgba(255,255,255,0.09);
+        color: #e2e8f0;
+        font-size: .95rem;
       }
-
+      .cert-item i { color: var(--gold); font-size: 1rem; }
+      .footer-grid { display: grid; grid-template-columns: repeat(5, minmax(0,1fr)); gap: 1rem; }
+      .footer-grid h4 { color: white; margin-bottom: .6rem; font-size: 1rem; text-transform: uppercase; letter-spacing: .08em; }
+      .footer-grid p, .footer-grid li { color: #c9d4e2; margin: .35rem 0; }
+      .footer-grid a { color: #e2e8f0; }
+      .footer-grid a:hover { color: var(--gold); }
       .footer-bottom {
-        margin-top: 1.5rem;
+        margin-top: 1.4rem;
         padding-top: 1rem;
-        border-top: 1px solid rgba(255, 255, 255, 0.12);
-        color: rgba(255, 255, 255, 0.7);
-        font-size: 0.95rem;
+        border-top: 1px solid rgba(255,255,255,0.12);
+        color: rgba(255,255,255,.75);
+        font-size: .95rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 1rem;
+        flex-wrap: wrap;
       }
+      .footer-links { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+      .floating-btn {
+        position: fixed; right: 1rem; bottom: 1rem; width: 56px; height: 56px; border-radius: 50%; display: grid; place-items: center; background: linear-gradient(135deg, #25d366, #128c7e); color: white; box-shadow: 0 12px 24px rgba(0,0,0,.22); z-index: 120; font-size: 1.3rem;
+      }
+      .back-to-top { position: fixed; right: 1rem; bottom: 5.2rem; width: 46px; height: 46px; border-radius: 50%; display: none; place-items: center; background: var(--navy); color: white; box-shadow: 0 10px 24px rgba(0,0,0,.16); z-index: 120; }
+      .back-to-top.show { display: grid; }
 
       @media (max-width: 980px) {
-        .hero .container,
-        .contact-grid,
-        .footer-grid {
-          grid-template-columns: 1fr;
-        }
-
-        .timeline {
-          grid-template-columns: repeat(2, minmax(0, 1fr));
-        }
-
-        .card-grid,
-        .vacancy-grid,
-        .gallery-grid,
-        .testimonial-grid,
-        .faq-grid {
-          grid-template-columns: 1fr 1fr;
-        }
+        .hero .container, .overview-grid, .contact-grid { grid-template-columns: 1fr; }
+        .stats-grid { grid-template-columns: repeat(3, minmax(0,1fr)); }
+        .services-grid, .vacancy-grid, .testimonial-grid, .news-grid, .gallery-grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
+        .timeline { grid-template-columns: repeat(3, minmax(0,1fr)); }
+        .footer-grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
       }
-
-      @media (max-width: 680px) {
-        .container {
-          width: min(100% - 1.2rem, 1200px);
-        }
-
-        .nav-links {
-          display: none;
-        }
-
-        .topbar .container {
-          padding: 0.9rem 0;
-        }
-
-        .brand {
-          gap: 0.6rem;
-        }
-
-        .brand-logo {
-          height: 42px;
-        }
-
-        .brand-name {
-          font-size: 0.8rem;
-        }
-
-        .stats,
-        .card-grid,
-        .vacancy-grid,
-        .gallery-grid,
-        .testimonial-grid,
-        .faq-grid,
-        .timeline {
-          grid-template-columns: 1fr;
-        }
-
-        .hero {
-          min-height: auto;
-        }
-
-        .hero .container {
-          padding-top: 3rem;
-          padding-bottom: 4rem;
-          gap: 1.3rem;
-        }
-
-        .hero h1 {
-          font-size: 2rem;
-          line-height: 1.15;
-        }
-
-        .hero p {
-          font-size: 0.98rem;
-        }
-
-        .hero-actions {
-          flex-direction: column;
-          gap: 0.8rem;
-        }
-
-        .btn {
-          width: 100%;
-          min-height: 48px;
-        }
-
-        .trust-badges {
-          gap: 0.55rem;
-        }
-
-        .trust-badge {
-          width: 100%;
-          text-align: center;
-        }
-
-        section {
-          padding: 3.2rem 0;
-        }
-
-        .section-head {
-          flex-direction: column;
-          align-items: flex-start;
-          gap: 0.45rem;
-          margin-bottom: 1.3rem;
-        }
-
-        .card,
-        .vacancy-card,
-        .contact-card,
-        .form-card {
-          border-radius: 14px;
-        }
-
-        form input,
-        form textarea,
-        form select {
-          font-size: 1rem;
-          padding: 0.9rem 0.95rem;
-        }
-
-        .footer-grid {
-          gap: 1rem;
-        }
+      @media (max-width: 700px) {
+        .nav-links { display: none; }
+        .menu-toggle { display: inline-grid; }
+        .hero { min-height: auto; }
+        .hero .container { padding: 4rem 0 5rem; }
+        .stats-grid, .services-grid, .vacancy-grid, .testimonial-grid, .news-grid, .gallery-grid, .timeline, .footer-grid { grid-template-columns: 1fr; }
+        .hero-actions { flex-direction: column; }
+        .btn { width: 100%; }
+        section { padding: 2.6rem 0; }
       }
     </style>
   </head>
@@ -839,20 +340,16 @@
     <header class="topbar">
       <div class="container">
         <a class="brand" href="#home">
-          <img
-            class="brand-logo"
-            src="https://i.ibb.co/cKD2Cw98/Chat-GPT-Image-Jul-21-2026-05-06-15-PM.png"
-            alt="Saudi Marine Offshore logo"
-          />
-          <span class="brand-name">Saudi Marine Offshore</span>
+          <img src="https://i.ibb.co/cKD2Cw98/Chat-GPT-Image-Jul-21-2026-05-06-15-PM.png" alt="Saudi Marine Offshore logo" />
+          <span>Saudi Marine Offshore</span>
         </a>
         <nav class="nav-links">
-          <a href="#about" class="active">About</a>
+          <a href="#about">About</a>
           <a href="#services">Services</a>
           <a href="#vacancies">Vacancies</a>
           <a href="#contact">Contact</a>
         </nav>
-        <button class="lang-switch" id="langSwitch">EN / العربية</button>
+        <button class="menu-toggle" aria-label="Toggle navigation"><i class="fa-solid fa-bars"></i></button>
       </div>
     </header>
 
@@ -860,78 +357,114 @@
       <section class="hero">
         <div class="container">
           <div>
-            <p class="eyebrow" data-en="Saudi Marine Offshore" data-ar="سعودي ماريين أوفشور">Saudi Marine Offshore</p>
-            <h1 data-en="Saudi Marine Offshore" data-ar="سعودي ماريين أوفشور">
-              Saudi Marine Offshore
-            </h1>
-            <p data-en="Global Marine & Offshore Recruitment | Offshore Oil & Gas | Energy Workforce Solutions" data-ar="التوظيف العالمي البحري والبحري | النفط والغاز البحري | حلول القوى العاملة للطاقة">
-              Global Marine & Offshore Recruitment | Offshore Oil & Gas | Energy Workforce Solutions
-            </p>
+            <p class="eyebrow">Global Marine & Offshore Recruitment</p>
+            <h1>Saudi Marine Offshore</h1>
+            <p>Premium recruitment and workforce solutions for marine, offshore, oil & gas, shipbuilding, FPSO, and energy projects across the Middle East and international markets.</p>
             <div class="hero-actions">
-              <a href="#vacancies" class="btn btn-primary" data-en="Explore Vacancies" data-ar="استكشف الوظائف">Explore Vacancies</a>
-              <a href="#contact" class="btn btn-secondary" data-en="Submit Your CV" data-ar="أرسل سيرتك الذاتية">Submit Your CV</a>
+              <a href="#vacancies" class="btn btn-primary">Explore Vacancies</a>
+              <a href="#contact" class="btn btn-secondary">Submit Your CV</a>
             </div>
-            <div class="trust-badges">
-              <span class="trust-badge">✓ Global Recruitment</span>
-              <span class="trust-badge">✓ Marine Experts</span>
-              <span class="trust-badge">✓ Offshore Workforce</span>
-              <span class="trust-badge">✓ Fast Deployment</span>
+            <div class="hero-badges">
+              <span>✓ Offshore Recruitment</span>
+              <span>✓ Oil & Gas</span>
+              <span>✓ Marine Engineering</span>
+              <span>✓ Fast Deployment</span>
             </div>
-            <div class="stats">
-              <div class="stat-card">
-                <strong>500+</strong>
-                <span data-en="Crew placed globally" data-ar="تم نشر أكثر من 500 فرد">Crew placed globally</span>
-              </div>
-              <div class="stat-card">
-                <strong>24/7</strong>
-                <span data-en="Recruitment support" data-ar="دعم توظيف على مدار الساعة">Recruitment support</span>
-              </div>
-              <div class="stat-card">
-                <strong>100%</strong>
-                <span data-en="Compliance focused" data-ar="تركيز كامل على الالتزام">Compliance focused</span>
-              </div>
-            </div>
+            <div class="scroll-indicator"><i class="fa-solid fa-chevron-down"></i> Scroll to explore</div>
           </div>
-
-          <aside class="hero-panel">
-            <h3 data-en="Why companies trust us" data-ar="لماذا تثق الشركات بنا">Why companies trust us</h3>
+          <aside class="hero-card">
+            <h3>Why industry leaders choose us</h3>
             <ul>
-              <li data-en="International offshore project coverage" data-ar="تغطية مشاريع بحرية دولية">International offshore project coverage</li>
-              <li data-en="Verified crew and compliance documentation" data-ar="طاقم معتمد ووثائق التزام">Verified crew and compliance documentation</li>
-              <li data-en="Fast mobilization and visa assistance" data-ar="تنسيق سريع ونقل وف visas">Fast mobilization and visa assistance</li>
-              <li data-en="Professional support from selection to deployment" data-ar="دعم احترافي من الاختيار إلى النشر">Professional support from selection to deployment</li>
+              <li><i class="fa-solid fa-circle-check"></i><span>International offshore project coverage with compliant crew deployment.</span></li>
+              <li><i class="fa-solid fa-circle-check"></i><span>Verified candidates with passports, STCW, BOSIET, and medical records.</span></li>
+              <li><i class="fa-solid fa-circle-check"></i><span>Professional support from shortlist to mobilization and deployment.</span></li>
+              <li><i class="fa-solid fa-circle-check"></i><span>Trusted by employers across marine, drilling, shipyard, and energy sectors.</span></li>
             </ul>
           </aside>
         </div>
       </section>
 
+      <div class="container" style="margin-top: -2rem; position: relative; z-index: 2;">
+        <div class="stats-grid">
+          <div class="stat-card"><strong>500+</strong><span>Crews placed</span></div>
+          <div class="stat-card"><strong>25+</strong><span>Countries served</span></div>
+          <div class="stat-card"><strong>15+</strong><span>Years experience</span></div>
+          <div class="stat-card"><strong>100%</strong><span>Compliance focus</span></div>
+          <div class="stat-card"><strong>24/7</strong><span>Recruitment support</span></div>
+        </div>
+      </div>
+
       <section id="about">
         <div class="container">
           <div class="section-head">
             <div>
-              <p class="eyebrow">About Us</p>
-              <h2 data-en="Premium offshore recruitment for global energy operations" data-ar="توظيف بحري متقدم لمشاريع الطاقة العالمية">Premium offshore recruitment for global energy operations</h2>
+              <p class="eyebrow">Company Overview</p>
+              <h2>Premium recruitment solutions for the global marine and offshore workforce</h2>
             </div>
           </div>
-          <div class="card-grid">
-            <article class="card">
-              <h3 data-en="Who we are" data-ar="من نحن">Who we are</h3>
-              <p data-en="Saudi Marine Offshore is a leading offshore manpower and marine recruitment company supplying qualified professionals to offshore oil & gas, marine construction, shipyards, FPSO, drilling and energy projects across the Middle East and beyond." data-ar="سعودي ماريين أوفشور هي شركة رائدة في توفير القوى العاملة البحرية والبحرية وتوريد كوادر مؤهلة لمشاريع النفط والغاز البحرية والبناء البحري والورش والمشاريع البحرية والطاقة.">
-                Saudi Marine Offshore is a leading offshore manpower and marine recruitment company supplying qualified professionals to offshore oil & gas, marine construction, shipyards, FPSO, drilling and energy projects across the Middle East and beyond.
-              </p>
-            </article>
-            <article class="card">
-              <h3 data-en="What we deliver" data-ar="ما نقدمه">What we deliver</h3>
-              <p data-en="We specialize in experienced, certified offshore personnel with strong safety culture, compliance readiness, and rapid deployment support for international clients." data-ar="نحن متخصصون في توفير كوادر بحرية ذات خبرة وشهادات مع الالتزام بالسلامة والسرعة في الانتشار.">
-                We specialize in experienced, certified offshore personnel with strong safety culture, compliance readiness, and rapid deployment support for international clients.
-              </p>
-            </article>
-            <article class="card">
-              <h3 data-en="Why clients choose us" data-ar="لماذا يختارنا العملاء">Why clients choose us</h3>
-              <p data-en="Our recruitment process is transparent, professional and focused on quality workforce, safe operations, and long-term reliability." data-ar="تتميز عملية التوظيف لدينا بالشفافية والاحترافية والتركيز على جودة القوى العاملة وسلامة العمليات.">
-                Our recruitment process is transparent, professional and focused on quality workforce, safe operations, and long-term reliability.
-              </p>
-            </article>
+          <div class="overview-grid">
+            <div class="card">
+              <h3>About Saudi Marine Offshore</h3>
+              <p>Saudi Marine Offshore is a professional recruitment partner specializing in marine, offshore, engineering, oil & gas, and EPC projects. We support employers and candidates with efficient staffing, compliance management, and fast mobilization across regional and international operations.</p>
+              <p>Our strength lies in understanding vessel operations, offshore safety, and the technical workforce required for complex energy projects.</p>
+            </div>
+            <div class="quote-box">
+              <p style="font-size: 1.05rem;"><strong>Our mission</strong> is to connect capable professionals with opportunities that keep offshore and marine operations safe, efficient, and future-ready.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section style="background: var(--surface-alt);">
+        <div class="container">
+          <div class="section-head">
+            <div>
+              <p class="eyebrow">Our Strength</p>
+              <h2>Vision, mission, and values driving every placement</h2>
+            </div>
+          </div>
+          <div class="grid-3">
+            <div class="card">
+              <h3>Vision</h3>
+              <p>To become the preferred workforce partner for marine and offshore operations across the Middle East and global energy markets.</p>
+            </div>
+            <div class="card">
+              <h3>Mission</h3>
+              <p>To deliver skilled, compliant, and dependable manpower solutions that support safe and successful project execution.</p>
+            </div>
+            <div class="card">
+              <h3>Core Values</h3>
+              <p>Safety, integrity, reliability, professionalism, and long-term partnership.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="container">
+          <div class="section-head">
+            <div>
+              <p class="eyebrow">Why Choose Us</p>
+              <h2>Trusted for safety, compliance, engineering expertise, and rapid mobilization</h2>
+            </div>
+          </div>
+          <div class="grid-4">
+            <div class="card">
+              <h3>Global Reach</h3>
+              <p>We support offshore and marine operations across multiple regions with experienced recruitment teams.</p>
+            </div>
+            <div class="card">
+              <h3>Compliance Focus</h3>
+              <p>Every candidate is reviewed for technical qualifications, certifications, and document readiness.</p>
+            </div>
+            <div class="card">
+              <h3>Safety-Driven</h3>
+              <p>Our placements are aligned with operational safety standards required in offshore energy projects.</p>
+            </div>
+            <div class="card">
+              <h3>Fast Deployment</h3>
+              <p>We help employers mobilize qualified crews quickly without compromising quality or compliance.</p>
+            </div>
           </div>
         </div>
       </section>
@@ -941,284 +474,318 @@
           <div class="section-head">
             <div>
               <p class="eyebrow">Our Services</p>
-              <h2 data-en="End-to-end recruitment solutions for marine and offshore operations" data-ar="حلول توظيف متكاملة للعمليات البحرية والبحرية">End-to-end recruitment solutions for marine and offshore operations</h2>
+              <h2>Specialized recruitment services for marine, offshore, and energy sectors</h2>
             </div>
           </div>
-          <div class="card-grid">
-            <article class="card">
+          <div class="services-grid">
+            <div class="card service-card">
+              <i class="fa-solid fa-anchor"></i>
               <h3>Marine Recruitment</h3>
-              <ul class="service-list">
-                <li>Offshore Manpower Supply</li>
-                <li>Vessel Crew Hiring</li>
-                <li>Drilling Crew</li>
+              <ul>
+                <li>Vessel crew</li>
+                <li>Marine engineers</li>
+                <li>Deck officers</li>
+                <li>Ports and terminals</li>
               </ul>
-            </article>
-            <article class="card">
-              <h3>Project Staffing</h3>
-              <ul class="service-list">
-                <li>FPSO Staffing</li>
-                <li>Shipyard Workforce</li>
-                <li>Shutdown & Turnaround Manpower</li>
+            </div>
+            <div class="card service-card">
+              <i class="fa-solid fa-ship"></i>
+              <h3>Offshore Recruitment</h3>
+              <ul>
+                <li>Rig crew</li>
+                <li>Offshore supervisors</li>
+                <li>Production teams</li>
+                <li>Maintenance specialists</li>
               </ul>
-            </article>
-            <article class="card">
-              <h3>Support Services</h3>
-              <ul class="service-list">
-                <li>Visa Assistance</li>
-                <li>Mobilization Support</li>
-                <li>Crew Management</li>
+            </div>
+            <div class="card service-card">
+              <i class="fa-solid fa-gas-pump"></i>
+              <h3>Oil & Gas</h3>
+              <ul>
+                <li>Drilling</li>
+                <li>Pipeline</li>
+                <li>Instrumentation</li>
+                <li>Electrical & mechanical</li>
               </ul>
-            </article>
+            </div>
+            <div class="card service-card">
+              <i class="fa-solid fa-hard-hat"></i>
+              <h3>Shipyard & EPC</h3>
+              <ul>
+                <li>Fabrication</li>
+                <li>Welding</li>
+                <li>Insulation</li>
+                <li>Shutdown projects</li>
+              </ul>
+            </div>
           </div>
         </div>
       </section>
 
-      <section id="vacancies">
+      <section style="background: var(--surface-alt);">
+        <div class="container">
+          <div class="section-head">
+            <div>
+              <p class="eyebrow">Safety & Training</p>
+              <h2>Certified workforce support for offshore operations and remote project delivery</h2>
+            </div>
+          </div>
+          <div class="grid-3">
+            <div class="card">
+              <h3>Training Readiness</h3>
+              <p>We coordinate readiness for BOSIET, HUET, H2S, OPITO, and other operational training standards.</p>
+            </div>
+            <div class="card">
+              <h3>Medical & Compliance</h3>
+              <p>Our process supports medical screening, documentation, and regulatory compliance for field deployment.</p>
+            </div>
+            <div class="card">
+              <h3>Operational Excellence</h3>
+              <p>We place professionals who understand offshore safety, vessel operation, and project execution.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="vacancies" style="background: var(--surface-alt);">
         <div class="container">
           <div class="section-head">
             <div>
               <p class="eyebrow">Offshore Vacancies</p>
-              <h2 data-en="Current openings across marine, drilling and offshore construction" data-ar="وظائف حالية في المجال البحري والحفر والبناء البحري">Current openings across marine, drilling and offshore construction</h2>
+              <h2>Current openings in Oman and UAE offshore projects</h2>
             </div>
           </div>
-          <div class="filter-bar">
-            <button class="filter-btn active" data-filter="all">All Roles</button>
-            <button class="filter-btn" data-filter="marine">Marine</button>
-            <button class="filter-btn" data-filter="engine">Engine</button>
-            <button class="filter-btn" data-filter="oilgas">Oil & Gas</button>
-            <button class="filter-btn" data-filter="drilling">Drilling</button>
-            <button class="filter-btn" data-filter="hse">HSE</button>
-          </div>
           <div class="vacancy-grid">
-            <article class="vacancy-card" data-category="marine">
-              <h4>Master</h4>
-              <div class="meta">Marine Department • Vessel Operations</div>
-              <p>Experienced master with offshore navigation and international vessel compliance.</p>
-              <div class="pill-row"><span class="pill">10+ years</span><span class="pill">STCW</span></div>
+            <article class="vacancy-card">
+              <div class="meta">Oman Offshore • Marine Department</div>
+              <h3>Master / Chief Officer</h3>
+              <p>Experienced marine officer for offshore support operations with strong vessel compliance knowledge.</p>
+              <div class="pill-row"><span class="pill">Oman</span><span class="pill">STCW</span><span class="pill">10+ yrs</span></div>
             </article>
-            <article class="vacancy-card" data-category="engine">
-              <h4>Chief Engineer</h4>
-              <div class="meta">Engine Department • Offshore Platform</div>
-              <p>Senior chief engineer for main propulsion, maintenance and safety systems.</p>
-              <div class="pill-row"><span class="pill">Engine Room</span><span class="pill">Compliance</span></div>
+            <article class="vacancy-card">
+              <div class="meta">UAE Offshore • Engine Department</div>
+              <h3>Chief Engineer</h3>
+              <p>Senior chief engineer for offshore platform maintenance, safety systems, and reliability standards.</p>
+              <div class="pill-row"><span class="pill">UAE</span><span class="pill">Engine Room</span><span class="pill">Compliance</span></div>
             </article>
-            <article class="vacancy-card" data-category="oilgas">
-              <h4>Rigger Level III</h4>
-              <div class="meta">Offshore Oil & Gas • Lifting Ops</div>
-              <p>Certified rigger for offshore lifting and heavy equipment movement.</p>
-              <div class="pill-row"><span class="pill">Lifting</span><span class="pill">Certified</span></div>
+            <article class="vacancy-card">
+              <div class="meta">Oman Offshore • Oil & Gas</div>
+              <h3>Rigger Level III</h3>
+              <p>Certified rigger for lifting, heavy equipment movement, and safe offshore crane operations.</p>
+              <div class="pill-row"><span class="pill">Oman</span><span class="pill">Lifting</span><span class="pill">Certified</span></div>
             </article>
-            <article class="vacancy-card" data-category="drilling">
-              <h4>Driller</h4>
-              <div class="meta">Drilling • Rig Operations</div>
-              <p>Skilled driller for offshore drilling campaigns and well operations.</p>
-              <div class="pill-row"><span class="pill">Rig</span><span class="pill">Well Ops</span></div>
+            <article class="vacancy-card">
+              <div class="meta">UAE Offshore • Drilling</div>
+              <h3>Driller</h3>
+              <p>Skilled drilling professional for offshore well operations and rig campaigns.</p>
+              <div class="pill-row"><span class="pill">UAE</span><span class="pill">Rig</span><span class="pill">Well Ops</span></div>
             </article>
-            <article class="vacancy-card" data-category="hse">
-              <h4>Safety Officer</h4>
-              <div class="meta">HSE • Offshore Project</div>
-              <p>HSE professional with permit-to-work, toolbox talks and incident response.</p>
-              <div class="pill-row"><span class="pill">HSE</span><span class="pill">Safety</span></div>
+            <article class="vacancy-card">
+              <div class="meta">Oman Offshore • HSE</div>
+              <h3>HSE Supervisor</h3>
+              <p>Safety professional supporting toolbox talks, permits, and incident response on site.</p>
+              <div class="pill-row"><span class="pill">Oman</span><span class="pill">HSE</span><span class="pill">Safety</span></div>
             </article>
-            <article class="vacancy-card" data-category="marine">
-              <h4>Chief Cook</h4>
-              <div class="meta">Marine Department • Crew Welfare</div>
-              <p>Marine cook experienced in long voyages and remote offshore operations.</p>
-              <div class="pill-row"><span class="pill">Food Safety</span><span class="pill">Vessel</span></div>
+            <article class="vacancy-card">
+              <div class="meta">UAE Offshore • Electrical</div>
+              <h3>Electrician / Technician</h3>
+              <p>Qualified technician for offshore electrical systems, maintenance, and troubleshooting.</p>
+              <div class="pill-row"><span class="pill">UAE</span><span class="pill">Electrical</span><span class="pill">Maintenance</span></div>
             </article>
           </div>
         </div>
       </section>
 
-      <section id="process">
+      <section>
         <div class="container">
           <div class="section-head">
             <div>
               <p class="eyebrow">Recruitment Process</p>
-              <h2 data-en="A structured path from application to mobilization" data-ar="مسار منظم من التقديم إلى الانتشار">A structured path from application to mobilization</h2>
+              <h2>Structured path from application to deployment</h2>
             </div>
           </div>
           <div class="timeline">
-            <div class="step"><strong>01</strong><span data-en="Apply Online" data-ar="التقديم عبر الإنترنت">Apply Online</span></div>
-            <div class="step"><strong>02</strong><span data-en="CV Screening" data-ar="مراجعة السيرة">CV Screening</span></div>
-            <div class="step"><strong>03</strong><span data-en="Interview" data-ar="المقابلة">Interview</span></div>
-            <div class="step"><strong>04</strong><span data-en="Document Verification" data-ar="التحقق من الوثائق">Document Verification</span></div>
-            <div class="step"><strong>05</strong><span data-en="Medical" data-ar="الفحص الطبي">Medical</span></div>
-            <div class="step"><strong>06</strong><span data-en="Visa Processing" data-ar="معالجة التأشيرة">Visa Processing</span></div>
-            <div class="step"><strong>07</strong><span data-en="Mobilization" data-ar="الانتشار">Mobilization</span></div>
+            <div class="step"><strong>01</strong><span>Apply Online</span></div>
+            <div class="step"><strong>02</strong><span>Screening</span></div>
+            <div class="step"><strong>03</strong><span>Interview</span></div>
+            <div class="step"><strong>04</strong><span>Documentation</span></div>
+            <div class="step"><strong>05</strong><span>Visa & Mobilization</span></div>
           </div>
         </div>
       </section>
 
-      <section id="documents">
-        <div class="container">
-          <div class="section-head">
-            <div>
-              <p class="eyebrow">Required Documents</p>
-              <h2 data-en="Prepare your profile for rapid deployment" data-ar="جهز ملفك للانتشار السريع">Prepare your profile for rapid deployment</h2>
-            </div>
-          </div>
-          <div class="card-grid">
-            <article class="card">
-              <h3 data-en="Core documents" data-ar="الوثائق الأساسية">Core documents</h3>
-              <ul class="doc-list">
-                <li>Updated CV</li>
-                <li>Passport</li>
-                <li>Passport Size Photo</li>
-              </ul>
-            </article>
-            <article class="card">
-              <h3 data-en="Professional records" data-ar="السجلات المهنية">Professional records</h3>
-              <ul class="doc-list">
-                <li>Experience Certificates</li>
-                <li>STCW Certificates</li>
-                <li>BOSIET / HUET</li>
-              </ul>
-            </article>
-            <article class="card">
-              <h3 data-en="Compliance and travel" data-ar="الالتزام والسفر">Compliance and travel</h3>
-              <ul class="doc-list">
-                <li>OGUK Medical</li>
-                <li>Seaman Book</li>
-                <li>CDC / COC / Police Clearance</li>
-              </ul>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section id="certifications">
+      <section style="background: var(--surface-alt);">
         <div class="container">
           <div class="section-head">
             <div>
               <p class="eyebrow">Certifications</p>
-              <h2 data-en="Committed to international standards and safe staffing" data-ar="ملتزم بالمعايير الدولية وتوظيف آمن">Committed to international standards and safe staffing</h2>
+              <h2>Required credentials and compliance standards</h2>
             </div>
           </div>
-          <div class="marquee">
-            <span>ISO Certified</span>
-            <span>STCW Standards</span>
-            <span>IMO Compliance</span>
-            <span>International Safety Standards</span>
-            <span>Professional Recruitment Process</span>
+          <div class="logos">
+            <span class="logo-chip">STCW</span>
+            <span class="logo-chip">BOSIET</span>
+            <span class="logo-chip">HUET</span>
+            <span class="logo-chip">OGUK</span>
+            <span class="logo-chip">NEBOSH</span>
+            <span class="logo-chip">IOSH</span>
+            <span class="logo-chip">H2S</span>
+            <span class="logo-chip">OPITO</span>
+            <span class="logo-chip">CDC</span>
+            <span class="logo-chip">Seaman Book</span>
           </div>
         </div>
       </section>
 
-      <section id="industries">
+      <section>
         <div class="container">
           <div class="section-head">
             <div>
               <p class="eyebrow">Industries We Serve</p>
-              <h2 data-en="Serving the full spectrum of marine and energy sectors" data-ar="خدمة كامل نطاق القطاعات البحرية والطاقة">Serving the full spectrum of marine and energy sectors</h2>
+              <h2>Trusted across oil & gas, marine, renewable, ports, and heavy engineering</h2>
             </div>
           </div>
-          <div class="marquee">
-            <span>Oil & Gas</span>
-            <span>Marine</span>
-            <span>Offshore Construction</span>
-            <span>Drilling</span>
-            <span>Shipbuilding</span>
-            <span>Renewable Energy</span>
-            <span>FPSO</span>
-            <span>Petrochemical</span>
-            <span>Ports & Terminals</span>
-            <span>Heavy Engineering</span>
+          <div class="grid-4">
+            <div class="card"><h3>Oil & Gas</h3></div>
+            <div class="card"><h3>Marine</h3></div>
+            <div class="card"><h3>Shipping</h3></div>
+            <div class="card"><h3>FPSO</h3></div>
+            <div class="card"><h3>Ports</h3></div>
+            <div class="card"><h3>Ship Repair</h3></div>
+            <div class="card"><h3>Renewables</h3></div>
+            <div class="card"><h3>Petrochemical</h3></div>
           </div>
         </div>
       </section>
 
-      <section id="gallery">
-        <div class="container">
-          <div class="section-head">
-            <div>
-              <p class="eyebrow">Gallery</p>
-              <h2 data-en="A glimpse into offshore operations and marine environments" data-ar="لمحة عن العمليات البحرية والبيئة البحرية">A glimpse into offshore operations and marine environments</h2>
-            </div>
-          </div>
-          <div class="gallery-grid">
-            <div class="gallery-item" style="background-image:url('https://images.unsplash.com/photo-1578575437130-527eed3abbec?auto=format&fit=crop&w=900&q=80')" data-label="Offshore Platform"></div>
-            <div class="gallery-item" style="background-image:url('https://images.unsplash.com/photo-1612287230202-1ff1d85d1bdf?auto=format&fit=crop&w=900&q=80')" data-label="Oil Rig"></div>
-            <div class="gallery-item" style="background-image:url('https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=900&q=80')" data-label="Supply Vessel"></div>
-            <div class="gallery-item" style="background-image:url('https://images.unsplash.com/photo-1517430816045-df4b7de11d1d?auto=format&fit=crop&w=900&q=80')" data-label="Drilling Rig"></div>
-          </div>
-        </div>
-      </section>
-
-      <section id="testimonials">
+      <section style="background: var(--surface-alt);">
         <div class="container">
           <div class="section-head">
             <div>
               <p class="eyebrow">Testimonials</p>
-              <h2 data-en="Trusted by professionals and employers alike" data-ar="موثوق من قبل المتقدمين وأصحاب العمل">Trusted by professionals and employers alike</h2>
+              <h2>What clients and candidates say about working with us</h2>
             </div>
           </div>
           <div class="testimonial-grid">
-            <article class="card">
-              <p class="quote">“Professional recruitment services, fast response and clear communication from the first step to mobilization.”</p>
-              <h4>— Offshore Candidate</h4>
-            </article>
-            <article class="card">
-              <p class="quote">“Reliable offshore employer network and excellent support for international deployment.”</p>
-              <h4>— Project Client</h4>
-            </article>
+            <div class="testimonial">
+              <div class="stars">★★★★★</div>
+              <p>Professional, responsive, and highly organized. They delivered the right offshore talent on time.</p>
+              <strong>— Project Director, UAE</strong>
+            </div>
+            <div class="testimonial">
+              <div class="stars">★★★★★</div>
+              <p>Excellent support from recruitment to mobilization. Their compliance process is very strong.</p>
+              <strong>— Operations Manager, Oman</strong>
+            </div>
+            <div class="testimonial">
+              <div class="stars">★★★★★</div>
+              <p>We trust them for critical offshore staffing needs across multiple vessel and rig projects.</p>
+              <strong>— HSE Lead, Saudi Arabia</strong>
+            </div>
           </div>
         </div>
       </section>
 
-      <section id="faq">
+      <section>
         <div class="container">
           <div class="section-head">
             <div>
               <p class="eyebrow">FAQ</p>
-              <h2 data-en="Frequently asked questions" data-ar="الأسئلة الشائعة">Frequently asked questions</h2>
+              <h2>Frequently asked questions</h2>
             </div>
           </div>
-          <div class="faq-grid">
-            <details class="card">
-              <summary>How do I apply?</summary>
-              <p>Submit your CV through the contact form or email us directly with your latest profile and certificates.</p>
-            </details>
-            <details class="card">
-              <summary>Do you support international deployment?</summary>
-              <p>Yes, we support international mobilization, visa coordination and document verification for offshore projects.</p>
-            </details>
+          <div class="faq-list">
+            <div class="faq-item active">
+              <button type="button">What roles do you recruit for?<span>+</span></button>
+              <div class="faq-answer">We recruit for marine, offshore, engineering, drilling, safety, electrical, instrumentation, logistics, and project management roles.</div>
+            </div>
+            <div class="faq-item">
+              <button type="button">Do you support international deployment?<span>+</span></button>
+              <div class="faq-answer">Yes. We provide end-to-end support including documentation, medicals, visa facilitation, and mobilization.</div>
+            </div>
+            <div class="faq-item">
+              <button type="button">Are candidates verified?<span>+</span></button>
+              <div class="faq-answer">Yes. We review experience, certifications, documents, and compliance requirements before shortlisting.</div>
+            </div>
           </div>
         </div>
       </section>
 
-      <section id="contact">
+      <section style="background: var(--surface-alt);">
         <div class="container">
           <div class="section-head">
             <div>
-              <p class="eyebrow">Contact</p>
-              <h2 data-en="Reach our corporate team for vacancies, registration and employer hiring requests" data-ar="تواصل مع فريقنا للوظائف والتسجيل وطلبات التوظيف">Reach our corporate team for vacancies, registration and employer hiring requests</h2>
+              <p class="eyebrow">Gallery</p>
+              <h2>Premium offshore and marine project highlights</h2>
             </div>
           </div>
-          <div class="contact-grid">
-            <div class="contact-card">
-              <h3 data-en="Corporate Office" data-ar="المكتب الرئيسي">Corporate Office</h3>
-              <div class="contact-list">
-                <div><strong>Address:</strong> Riyadh, Saudi Arabia</div>
-                <div><strong>Phone:</strong> +966 555 123 456</div>
-                <div><strong>WhatsApp:</strong> +966 555 123 456</div>
-                <div><strong>Email:</strong> info@saudimarineoffshore.com</div>
+          <div class="gallery-grid">
+            <div class="gallery-card" data-title="Offshore Platform"><img src="https://images.unsplash.com/photo-1578575437130-527eed3abbec?auto=format&fit=crop&w=900&q=80" alt="Offshore platform" /></div>
+            <div class="gallery-card" data-title="Drilling Operations"><img src="https://images.unsplash.com/photo-1612287230202-1ff1d85d1bdf?auto=format&fit=crop&w=900&q=80" alt="Drilling operations" /></div>
+            <div class="gallery-card" data-title="Marine Vessel"><img src="https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=900&q=80" alt="Marine vessel" /></div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="container">
+          <div class="section-head">
+            <div>
+              <p class="eyebrow">Latest News</p>
+              <h2>Industry updates and workforce insights</h2>
+            </div>
+          </div>
+          <div class="news-grid">
+            <div class="news-card">
+              <div class="news-body">
+                <h3>Offshore staffing demand rises in GCC</h3>
+                <p>Regional projects continue to increase demand for certified marine and offshore crews.</p>
               </div>
-              <iframe title="Google Map" src="https://www.google.com/maps?q=Riyadh%20Saudi%20Arabia&z=12&output=embed" style="width:100%;height:240px;border:0;border-radius:16px;margin-top:1rem;"></iframe>
+            </div>
+            <div class="news-card">
+              <div class="news-body">
+                <h3>Compliance standards shaping recruitment</h3>
+                <p>Operators are prioritizing documentation, medical readiness, and certification verification.</p>
+              </div>
+            </div>
+            <div class="news-card">
+              <div class="news-body">
+                <h3>Engineering workforce remains a strategic priority</h3>
+                <p>Skilled technical personnel continue to be essential for project delivery and maintenance.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" style="background: var(--surface-alt);">
+        <div class="container">
+          <div class="section-head">
+            <div>
+              <p class="eyebrow">Careers & Downloads</p>
+              <h2>Join our team or download our company profile for project and staffing details</h2>
+            </div>
+          </div>
+          <div class="contact-grid" style="margin-top: 1rem;">
+            <div class="contact-card">
+              <h3>Office Details</h3>
+              <p><i class="fa-solid fa-phone"></i> +971 52 177 0241</p>
+              <p><i class="fa-brands fa-whatsapp"></i> +971 52 177 0241</p>
+              <p><i class="fa-solid fa-envelope"></i> info@saudimarineoffshore.com</p>
+              <p><i class="fa-solid fa-location-dot"></i> Muscat, Oman</p>
+              <p><i class="fa-solid fa-clock"></i> Mon – Sat • 8:00 AM – 6:00 PM</p>
             </div>
             <div class="form-card">
               <form>
-                <input type="text" placeholder="Full Name" />
-                <input type="email" placeholder="Email Address" />
+                <input type="text" placeholder="Your Name" />
+                <input type="email" placeholder="Your Email" />
                 <select>
-                  <option>Candidate Registration</option>
-                  <option>Employer Hiring Request</option>
-                  <option>General Enquiry</option>
+                  <option>Candidate Enquiry</option>
+                  <option>Employer Enquiry</option>
+                  <option>Vacancy Enquiry</option>
                 </select>
-                <input type="text" placeholder="Position / Vessel Type" />
-                <textarea placeholder="Tell us about your requirement or experience"></textarea>
-                <input type="file" />
-                <a href="#" class="btn btn-primary" style="justify-content:flex-start;">Submit Request</a>
+                <textarea placeholder="Tell us about your requirements"></textarea>
+                <button class="btn btn-primary" type="button">Send Enquiry</button>
               </form>
             </div>
           </div>
@@ -1227,71 +794,111 @@
     </main>
 
     <footer>
-      <div class="container footer-grid">
-        <div class="footer-block footer-brand">
-          <h4>Saudi Marine Offshore</h4>
-          <p>Global marine and offshore recruitment solutions for energy, vessel operations, drilling, and construction projects around the world.</p>
+      <div class="container footer-top">
+        <div class="newsletter-card">
+          <div>
+            <h3>Stay Updated with Offshore Opportunities</h3>
+            <p>Receive the latest marine, offshore, and energy vacancies directly in your inbox.</p>
+          </div>
+          <div class="newsletter-form">
+            <input type="email" placeholder="Enter your email" />
+            <button type="button">Subscribe</button>
+          </div>
         </div>
-        <div class="footer-block">
-          <h4>Company</h4>
+
+        <div class="cert-strip">
+          <div class="cert-item"><i class="fa-solid fa-shield-halved"></i><span>International Marine Standards</span></div>
+          <div class="cert-item"><i class="fa-solid fa-hard-hat"></i><span>Offshore Safety Compliance</span></div>
+          <div class="cert-item"><i class="fa-solid fa-screwdriver-wrench"></i><span>Quality Workforce Solutions</span></div>
+          <div class="cert-item"><i class="fa-solid fa-globe"></i><span>Global Recruitment Excellence</span></div>
+        </div>
+
+        <div class="footer-grid">
+          <div>
+            <h4>Company Overview</h4>
+            <p>Saudi Marine Offshore provides premium recruitment and workforce solutions for marine, offshore, oil & gas, engineering, and global energy operations.</p>
+          </div>
+          <div>
+            <h4>Quick Navigation</h4>
+            <p><a href="#home">Home</a></p>
+            <p><a href="#about">About Us</a></p>
+            <p><a href="#services">Our Services</a></p>
+            <p><a href="#vacancies">Offshore Vacancies</a></p>
+            <p><a href="#contact">Contact Us</a></p>
+          </div>
+          <div>
+            <h4>Our Services</h4>
+            <p><a href="#vacancies">Marine Recruitment</a></p>
+            <p><a href="#vacancies">Offshore Recruitment</a></p>
+            <p><a href="#vacancies">Crew Management</a></p>
+            <p><a href="#vacancies">Engineering Workforce</a></p>
+            <p><a href="#vacancies">Shutdown Projects</a></p>
+          </div>
+          <div>
+            <h4>Candidate Resources</h4>
+            <p><a href="#contact">Submit Your CV</a></p>
+            <p><a href="#vacancies">Current Vacancies</a></p>
+            <p><a href="#contact">Required Documents</a></p>
+            <p><a href="#contact">FAQ</a></p>
+            <p><a href="#contact">Employer Inquiry</a></p>
+          </div>
+          <div>
+            <h4>Contact Information</h4>
+            <p><i class="fa-solid fa-location-dot"></i> Muscat, Oman</p>
+            <p><i class="fa-solid fa-phone"></i> +971 52 177 0241</p>
+            <p><i class="fa-brands fa-whatsapp"></i> +971 52 177 0241</p>
+            <p><i class="fa-solid fa-envelope"></i> info@saudimarineoffshore.com</p>
+            <p><i class="fa-solid fa-clock"></i> Mon – Sat • 8:00 AM – 6:00 PM</p>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <div>© <span id="year"></span> Saudi Marine Offshore. All Rights Reserved.</div>
           <div class="footer-links">
-            <a href="#about">About</a>
-            <a href="#services">Services</a>
-            <a href="#vacancies">Vacancies</a>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms & Conditions</a>
+            <a href="#">Cookie Policy</a>
+            <a href="#">Disclaimer</a>
           </div>
+          <div>Global Marine & Offshore Recruitment | Offshore Workforce Solutions</div>
         </div>
-        <div class="footer-block">
-          <h4>Quick Links</h4>
-          <div class="footer-links">
-            <a href="#process">Recruitment Process</a>
-            <a href="#industries">Industries</a>
-            <a href="#contact">Contact</a>
-          </div>
-        </div>
-        <div class="footer-block">
-          <h4>Contact</h4>
-          <div class="footer-contact">
-            <span>info@saudimarineoffshore.com</span>
-            <span>+966 555 123 456</span>
-            <span>Riyadh, Saudi Arabia</span>
-          </div>
-        </div>
-      </div>
-      <div class="container footer-bottom">
-        © 2026 Saudi Marine Offshore. All rights reserved.
       </div>
     </footer>
 
-    <a class="whatsapp-btn" href="https://wa.me/966555123456" aria-label="WhatsApp">W</a>
+    <a class="floating-btn" href="https://wa.me/96800000000" target="_blank" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+    <button class="back-to-top" id="backToTop" aria-label="Back to top"><i class="fa-solid fa-arrow-up"></i></button>
 
     <script>
-      const filterButtons = document.querySelectorAll('.filter-btn');
-      const vacancyCards = document.querySelectorAll('.vacancy-card');
+      const menuToggle = document.querySelector('.menu-toggle');
+      const navLinks = document.querySelector('.nav-links');
+      if (menuToggle && navLinks) {
+        menuToggle.addEventListener('click', () => {
+          navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+          navLinks.style.flexDirection = 'column';
+          navLinks.style.position = 'absolute';
+          navLinks.style.top = '70px';
+          navLinks.style.right = '1rem';
+          navLinks.style.background = '#fff';
+          navLinks.style.padding = '1rem';
+          navLinks.style.borderRadius = '12px';
+          navLinks.style.boxShadow = '0 12px 24px rgba(0,0,0,.12)';
+        });
+      }
 
-      filterButtons.forEach((button) => {
-        button.addEventListener('click', () => {
-          filterButtons.forEach((btn) => btn.classList.remove('active'));
-          button.classList.add('active');
-          const filter = button.getAttribute('data-filter');
-
-          vacancyCards.forEach((card) => {
-            const matches = filter === 'all' || card.getAttribute('data-category') === filter;
-            card.style.display = matches ? 'block' : 'none';
-          });
+      document.querySelectorAll('.faq-item button').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const item = btn.parentElement;
+          document.querySelectorAll('.faq-item').forEach(f => f.classList.remove('active'));
+          item.classList.add('active');
         });
       });
 
-      const langSwitch = document.getElementById('langSwitch');
-      const allTranslatable = document.querySelectorAll('[data-en][data-ar]');
-
-      let isArabic = false;
-      langSwitch.addEventListener('click', () => {
-        isArabic = !isArabic;
-        allTranslatable.forEach((el) => {
-          el.textContent = isArabic ? el.getAttribute('data-ar') : el.getAttribute('data-en');
-        });
-        langSwitch.textContent = isArabic ? 'AR / EN' : 'EN / العربية';
+      const backToTop = document.getElementById('backToTop');
+      window.addEventListener('scroll', () => {
+        backToTop.classList.toggle('show', window.scrollY > 500);
       });
+      backToTop?.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+      document.getElementById('year').textContent = new Date().getFullYear();
     </script>
   </body>
 </html>
