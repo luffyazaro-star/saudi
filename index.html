@@ -229,6 +229,9 @@
       form { display: grid; gap: .8rem; }
       input, textarea, select { width: 100%; padding: .9rem 1rem; border-radius: 12px; border: 1px solid var(--border); font: inherit; background: #f9fbfd; }
       textarea { min-height: 110px; resize: vertical; }
+      .form-status { margin-top: .65rem; font-weight: 600; display: none; }
+      .form-status.success { color: #0f766e; display: block; }
+      .form-status.error { color: #b91c1c; display: block; }
 
       footer {
         background: linear-gradient(135deg, #071a2d 0%, #0b2d4e 100%);
@@ -317,6 +320,187 @@
       .back-to-top { position: fixed; right: 1rem; bottom: 5.2rem; width: 46px; height: 46px; border-radius: 50%; display: none; place-items: center; background: var(--navy); color: white; box-shadow: 0 10px 24px rgba(0,0,0,.16); z-index: 120; }
       .back-to-top.show { display: grid; }
 
+      .progress-bar {
+        position: fixed; inset: 0 auto auto 0; height: 3px; width: 0; background: linear-gradient(90deg, var(--gold), var(--blue)); z-index: 220; box-shadow: 0 0 16px rgba(212,175,55,.3);
+      }
+      html { scroll-behavior: smooth; }
+      body { position: relative; overflow-x: hidden; }
+      body::before {
+        content: '';
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        z-index: -1;
+        background: radial-gradient(circle at top left, rgba(11,92,173,.08), transparent 30%), radial-gradient(circle at bottom right, rgba(212,175,55,.08), transparent 28%);
+      }
+      .topbar {
+        transition: padding .3s ease, background .3s ease, box-shadow .3s ease;
+      }
+      .topbar.scrolled {
+        background: rgba(244,248,252,.93);
+        box-shadow: 0 10px 24px rgba(7,26,45,.08);
+      }
+      .topbar .container { transition: padding .3s ease; }
+      .topbar.scrolled .container { padding: .7rem 0; }
+      .brand img {
+        transition: transform .3s ease, box-shadow .3s ease;
+      }
+      .brand:hover img {
+        transform: scale(1.06) rotate(-3deg);
+      }
+      .nav-links a {
+        position: relative;
+        padding: .2rem 0;
+        transition: color .3s ease;
+      }
+      .nav-links a::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: -4px;
+        width: 0;
+        height: 2px;
+        border-radius: 999px;
+        background: linear-gradient(90deg, var(--gold), var(--blue));
+        transition: width .3s ease;
+      }
+      .nav-links a:hover::after, .nav-links a.active::after { width: 100%; }
+      .nav-links a:hover, .nav-links a.active { color: var(--blue); }
+
+      .btn {
+        position: relative;
+        overflow: hidden;
+        transition: transform .25s ease, box-shadow .25s ease, background .25s ease;
+      }
+      .btn::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(90deg, transparent, rgba(255,255,255,.18), transparent);
+        transform: translateX(-120%);
+        transition: transform .6s ease;
+      }
+      .btn:hover::before { transform: translateX(120%); }
+      .btn:hover { transform: translateY(-3px); box-shadow: 0 14px 28px rgba(7,26,45,.14); }
+      .btn:active { transform: translateY(-1px) scale(.98); }
+      .btn-primary {
+        background: linear-gradient(135deg, var(--navy), #0f3157);
+        color: white;
+      }
+      .btn-primary:hover {
+        background: linear-gradient(135deg, var(--gold), #ebc96a);
+        color: var(--navy);
+      }
+      .btn-secondary:hover {
+        background: rgba(255,255,255,.2);
+        color: white;
+      }
+      .btn-radar {
+        position: relative;
+        overflow: visible;
+        border-radius: 12px;
+      }
+      .btn-radar::before,
+      .btn-radar::after {
+        content: '';
+        position: absolute;
+        inset: -4px;
+        border: 2px solid rgba(11,92,173,.32);
+        border-radius: inherit;
+        opacity: 0;
+        transform: scale(1);
+        pointer-events: none;
+      }
+      .btn-radar::before {
+        animation: radarPulse 1.5s cubic-bezier(.22,1,.36,1) infinite;
+        animation-play-state: paused;
+      }
+      .btn-radar::after {
+        animation: radarPulse 1.5s cubic-bezier(.22,1,.36,1) infinite 0.35s;
+        animation-play-state: paused;
+      }
+      .btn-radar:hover::before,
+      .btn-radar:hover::after,
+      .btn-radar:focus-visible::before,
+      .btn-radar:focus-visible::after {
+        animation-play-state: running;
+      }
+      @keyframes radarPulse {
+        0% {
+          opacity: .6;
+          transform: scale(1);
+        }
+        70% {
+          opacity: 0;
+          transform: scale(1.75);
+        }
+        100% {
+          opacity: 0;
+          transform: scale(2.05);
+        }
+      }
+
+      .card, .stat-card, .service-card, .vacancy-card, .testimonial, .news-card, .contact-card, .form-card, .faq-item, .gallery-card, .download-card, .quote-box, .hero-card {
+        transition: transform .35s ease, box-shadow .35s ease, border-color .35s ease;
+      }
+      .card:hover, .stat-card:hover, .service-card:hover, .vacancy-card:hover, .testimonial:hover, .news-card:hover, .contact-card:hover, .form-card:hover, .faq-item:hover, .gallery-card:hover, .download-card:hover, .quote-box:hover, .hero-card:hover {
+        transform: translateY(-6px) scale(1.01);
+        box-shadow: 0 20px 42px rgba(7,26,45,.12);
+        border-color: rgba(11,92,173,.35);
+      }
+      .gallery-card img, .news-card img {
+        transition: transform .45s ease;
+      }
+      .gallery-card:hover img, .news-card:hover img {
+        transform: scale(1.04);
+      }
+      .hero {
+        position: relative;
+        overflow: hidden;
+      }
+      .hero::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(120deg, rgba(7,26,45,.2), rgba(11,92,173,.15));
+        animation: heroDrift 14s ease-in-out infinite alternate;
+      }
+      .hero::after {
+        content: '';
+        position: absolute;
+        left: -8%; right: -8%; bottom: -1px;
+        height: 140px;
+        background: linear-gradient(180deg, transparent, rgba(255,255,255,.95));
+        clip-path: polygon(0 44%, 100% 0, 100% 100%, 0 100%);
+        pointer-events: none;
+      }
+      @keyframes heroDrift {
+        0% { transform: translate3d(0,0,0) scale(1); }
+        100% { transform: translate3d(-3%, 2%, 0) scale(1.03); }
+      }
+      .scroll-indicator {
+        animation: floatDown 2.2s ease-in-out infinite;
+      }
+      @keyframes floatDown {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(5px); }
+      }
+      [data-animate] {
+        opacity: 0;
+        transform: translateY(24px);
+        transition: opacity .8s ease, transform .8s ease;
+      }
+      [data-animate="fade-left"] { transform: translateX(-24px); }
+      [data-animate="fade-right"] { transform: translateX(24px); }
+      [data-animate].visible {
+        opacity: 1;
+        transform: translate(0, 0);
+      }
+      .stat-card strong {
+        transition: color .3s ease;
+      }
+      .stat-card:hover strong { color: var(--gold); }
+
       @media (max-width: 980px) {
         .hero .container, .overview-grid, .contact-grid { grid-template-columns: 1fr; }
         .stats-grid { grid-template-columns: repeat(3, minmax(0,1fr)); }
@@ -361,8 +545,8 @@
             <h1>Saudi Marine Offshore</h1>
             <p>Premium recruitment and workforce solutions for marine, offshore, oil & gas, shipbuilding, FPSO, and energy projects across the Middle East and international markets.</p>
             <div class="hero-actions">
-              <a href="#vacancies" class="btn btn-primary">Explore Vacancies</a>
-              <a href="#contact" class="btn btn-secondary">Submit Your CV</a>
+              <a href="#vacancies" class="btn btn-primary btn-radar">Explore Vacancies</a>
+              <a href="#contact" class="btn btn-secondary btn-radar">Submit Your CV</a>
             </div>
             <div class="hero-badges">
               <span>✓ Offshore Recruitment</span>
@@ -386,11 +570,11 @@
 
       <div class="container" style="margin-top: -2rem; position: relative; z-index: 2;">
         <div class="stats-grid">
-          <div class="stat-card"><strong>500+</strong><span>Crews placed</span></div>
-          <div class="stat-card"><strong>25+</strong><span>Countries served</span></div>
-          <div class="stat-card"><strong>15+</strong><span>Years experience</span></div>
-          <div class="stat-card"><strong>100%</strong><span>Compliance focus</span></div>
-          <div class="stat-card"><strong>24/7</strong><span>Recruitment support</span></div>
+          <div class="stat-card"><strong class="counter" data-target="3500" data-suffix="+">0</strong><span>Crews placed</span></div>
+          <div class="stat-card"><strong class="counter" data-target="25" data-suffix="+">0</strong><span>Countries served</span></div>
+          <div class="stat-card"><strong class="counter" data-target="15" data-suffix="+">0</strong><span>Years experience</span></div>
+          <div class="stat-card"><strong class="counter" data-target="100" data-suffix="%">0</strong><span>Compliance focus</span></div>
+          <div class="stat-card"><strong class="counter" data-target="24" data-suffix="/7">0</strong><span>Recruitment support</span></div>
         </div>
       </div>
 
@@ -775,16 +959,19 @@
               <p style="font-size: 1.05rem;"><i class="fa-solid fa-location-dot"></i> Road No. 118, Industrial Area No. 1<br>Jubail Industrial City<br>Al Jubail 35717<br>Eastern Province<br>Kingdom of Saudi Arabia</p>
             </div>
             <div class="form-card">
-              <form>
-                <input type="text" placeholder="Your Name" />
-                <input type="email" placeholder="Your Email" />
-                <select>
-                  <option>Candidate Enquiry</option>
-                  <option>Employer Enquiry</option>
-                  <option>Vacancy Enquiry</option>
+              <form id="contactForm">
+                <input type="text" name="name" placeholder="Your Name" required />
+                <input type="email" name="email" placeholder="Your Email" required />
+                <input type="tel" name="phone" placeholder="Your Phone" />
+                <input type="text" name="company" placeholder="Your Company" />
+                <select name="service" required>
+                  <option value="Candidate Enquiry">Candidate Enquiry</option>
+                  <option value="Employer Enquiry">Employer Enquiry</option>
+                  <option value="Vacancy Enquiry">Vacancy Enquiry</option>
                 </select>
-                <textarea placeholder="Tell us about your requirements"></textarea>
-                <button class="btn btn-primary" type="button">Send Enquiry</button>
+                <textarea name="message" placeholder="Tell us about your requirements" required></textarea>
+                <button class="btn btn-primary btn-radar" type="submit">Send Enquiry</button>
+                <div class="form-status" id="formStatus" aria-live="polite"></div>
               </form>
             </div>
           </div>
@@ -866,12 +1053,50 @@
     <a class="floating-btn" href="https://wa.me/971507469003" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
     <button class="back-to-top" id="backToTop" aria-label="Back to top"><i class="fa-solid fa-arrow-up"></i></button>
 
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <script>
+      emailjs.init({
+        publicKey: 'wEW1tI-bpDjjPjSQK'
+      });
+
+      const contactForm = document.getElementById('contactForm');
+      const formStatus = document.getElementById('formStatus');
+
+      contactForm?.addEventListener('submit', async (event) => {
+        event.preventDefault();
+        const submitButton = contactForm.querySelector('button[type="submit"]');
+        if (submitButton) submitButton.disabled = true;
+
+        formStatus.textContent = '';
+        formStatus.className = 'form-status';
+
+        try {
+          await emailjs.sendForm('service_won9nui', 'template_jeiuhjv', contactForm);
+          formStatus.textContent = 'Message sent successfully!';
+          formStatus.classList.add('success');
+          contactForm.reset();
+        } catch (error) {
+          console.error('EmailJS error:', error);
+          formStatus.textContent = 'Failed to send message. Please try again.';
+          formStatus.classList.add('error');
+        } finally {
+          if (submitButton) submitButton.disabled = false;
+        }
+      });
+
+      const progressBar = document.getElementById('progressBar');
+      const topbar = document.querySelector('.topbar');
+      const backToTop = document.getElementById('backToTop');
       const menuToggle = document.querySelector('.menu-toggle');
       const navLinks = document.querySelector('.nav-links');
+      const navItems = document.querySelectorAll('.nav-links a');
+      const sections = document.querySelectorAll('section[id], header[id], footer[id]');
+      const revealTargets = document.querySelectorAll('section, .stat-card, .card, .service-card, .vacancy-card, .testimonial, .news-card, .gallery-card, .contact-card, .form-card, .faq-item, .hero-card, .quote-box, .download-card');
+
       if (menuToggle && navLinks) {
         menuToggle.addEventListener('click', () => {
-          navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+          const isVisible = navLinks.style.display === 'flex';
+          navLinks.style.display = isVisible ? 'none' : 'flex';
           navLinks.style.flexDirection = 'column';
           navLinks.style.position = 'absolute';
           navLinks.style.top = '70px';
@@ -891,12 +1116,71 @@
         });
       });
 
-      const backToTop = document.getElementById('backToTop');
-      window.addEventListener('scroll', () => {
-        backToTop.classList.toggle('show', window.scrollY > 500);
+      const updateScrollEffects = () => {
+        const scrollTop = window.scrollY;
+        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+        if (progressBar) progressBar.style.width = `${Math.min(progress, 100)}%`;
+        topbar?.classList.toggle('scrolled', scrollTop > 20);
+        backToTop?.classList.toggle('show', scrollTop > 500);
+
+        let currentId = '';
+        sections.forEach(section => {
+          const sectionTop = section.offsetTop - 140;
+          if (scrollTop >= sectionTop) currentId = section.id;
+        });
+
+        navItems.forEach(link => {
+          const href = link.getAttribute('href');
+          if (href && href.startsWith('#')) {
+            link.classList.toggle('active', href === `#${currentId}`);
+          }
+        });
+      };
+
+      const animateCounters = () => {
+        document.querySelectorAll('.counter').forEach(counter => {
+          const target = Number(counter.dataset.target || 0);
+          const suffix = counter.dataset.suffix || '';
+          const duration = 1400;
+          const startTime = performance.now();
+
+          const step = (time) => {
+            const progress = Math.min((time - startTime) / duration, 1);
+            const value = Math.floor(progress * target);
+            counter.textContent = `${value}${suffix}`;
+            if (progress < 1) requestAnimationFrame(step);
+          };
+
+          requestAnimationFrame(step);
+        });
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            if (entry.target.classList.contains('counter')) animateCounters();
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.15 });
+
+      revealTargets.forEach((target, index) => {
+        const direction = index % 3 === 0 ? 'fade-up' : index % 3 === 1 ? 'fade-left' : 'fade-right';
+        target.setAttribute('data-animate', direction);
+        observer.observe(target);
       });
+
+      window.addEventListener('scroll', updateScrollEffects, { passive: true });
+      window.addEventListener('load', () => {
+        updateScrollEffects();
+        animateCounters();
+      });
+
       backToTop?.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
-      document.getElementById('year').textContent = new Date().getFullYear();
+      const yearElement = document.getElementById('year');
+      if (yearElement) yearElement.textContent = new Date().getFullYear();
     </script>
   </body>
 </html>
