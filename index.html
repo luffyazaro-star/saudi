@@ -212,6 +212,21 @@
 
       .contact-grid { display: grid; grid-template-columns: .95fr 1.05fr; gap: 1rem; }
       .contact-card, .form-card { background: var(--surface); border: 1px solid var(--border); border-radius: 24px; padding: 1.2rem; box-shadow: var(--shadow); }
+      .contact-actions { display: grid; gap: .7rem; margin: 1rem 0 .8rem; }
+      .contact-actions a {
+        display: flex; align-items: center; justify-content: center; gap: .6rem;
+        padding: .9rem 1rem; border-radius: 999px; font-weight: 700; transition: transform .25s ease, box-shadow .25s ease, background .25s ease;
+      }
+      .contact-actions a:hover { transform: translateY(-2px); }
+      .contact-call {
+        background: linear-gradient(135deg, var(--navy), var(--blue));
+        color: white; box-shadow: 0 10px 24px rgba(7,26,45,.14);
+      }
+      .contact-whatsapp {
+        background: rgba(11,92,173,.08); color: var(--blue); border: 1px solid rgba(11,92,173,.16);
+      }
+      .contact-detail { display: flex; align-items: flex-start; gap: .6rem; margin: .55rem 0; color: var(--muted); }
+      .contact-detail i { color: var(--gold); margin-top: .2rem; }
       .split-card {
         display: grid;
         grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -509,14 +524,39 @@
         .footer-grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
       }
       @media (max-width: 700px) {
+        html, body { overflow-x: hidden; }
+        .container { width: min(100%, calc(100% - 1.2rem)); }
         .nav-links { display: none; }
         .menu-toggle { display: inline-grid; }
+        .topbar .container { padding: .85rem 0; }
+        .brand span { font-size: .95rem; }
+        .brand img { width: 44px; height: 44px; }
         .hero { min-height: auto; }
-        .hero .container { padding: 4rem 0 5rem; }
+        .hero .container { padding: 3rem 0 4rem; gap: 1.25rem; }
+        .hero h1 { font-size: clamp(2rem, 8vw, 2.7rem); line-height: 1.1; text-align: center; }
+        .hero p { text-align: center; font-size: 1rem; }
+        .hero-actions { flex-direction: column; align-items: stretch; }
+        .hero-badges { justify-content: center; }
+        .hero-card { padding: 1rem; }
+        .section-head { flex-direction: column; align-items: flex-start; gap: .35rem; margin-bottom: 1rem; }
         .stats-grid, .services-grid, .vacancy-grid, .testimonial-grid, .news-grid, .gallery-grid, .timeline, .footer-grid { grid-template-columns: 1fr; }
-        .hero-actions { flex-direction: column; }
-        .btn { width: 100%; }
-        section { padding: 2.6rem 0; }
+        .stat-card, .card, .service-card, .vacancy-card, .testimonial, .news-card, .contact-card, .form-card, .faq-item, .download-card, .quote-box { padding: 1rem; }
+        .btn { width: 100%; min-height: 50px; }
+        .contact-actions a { width: 100%; }
+        .newsletter-card { flex-direction: column; align-items: flex-start; }
+        .newsletter-form { width: 100%; }
+        .newsletter-form input { min-width: 100%; }
+        .footer-bottom { flex-direction: column; align-items: flex-start; }
+        section { padding: 2.3rem 0; }
+      }
+      @media (max-width: 480px) {
+        .container { width: min(100%, calc(100% - 1rem)); }
+        .hero .container { padding: 2.6rem 0 3.4rem; }
+        .hero-badges { gap: .45rem; }
+        .hero-badges span { font-size: .8rem; }
+        .contact-actions { gap: .6rem; }
+        .contact-detail { margin: .45rem 0; }
+        .footer-grid { gap: 1rem; }
       }
     </style>
   </head>
@@ -953,10 +993,14 @@
           <div class="contact-grid" style="margin-top: 1rem;">
             <div class="contact-card">
               <h3>Office Details</h3>
-              <p><i class="fa-solid fa-phone"></i> <a href="tel:+971507469003">+971 50 746 9003</a></p>
-              <p><i class="fa-brands fa-whatsapp"></i> <a href="https://wa.me/971507469003" target="_blank" rel="noopener">+971 50 746 9003</a></p>
-              <p><i class="fa-solid fa-envelope"></i> info@saudimarineoffshore.com</p>
-              <p style="font-size: 1.05rem;"><i class="fa-solid fa-location-dot"></i> Road No. 118, Industrial Area No. 1<br>Jubail Industrial City<br>Al Jubail 35717<br>Eastern Province<br>Kingdom of Saudi Arabia</p>
+              <div class="contact-actions">
+                <a class="contact-call" href="tel:+971507469003"><i class="fa-solid fa-phone"></i> Call Now</a>
+                <a class="contact-whatsapp" href="https://wa.me/971507469003" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> WhatsApp Now</a>
+              </div>
+              <p class="contact-detail"><i class="fa-solid fa-phone"></i><span><a href="tel:+971507469003">+971 50 746 9003</a></span></p>
+              <p class="contact-detail"><i class="fa-brands fa-whatsapp"></i><span><a href="https://wa.me/971507469003" target="_blank" rel="noopener">+971 50 746 9003</a></span></p>
+              <p class="contact-detail"><i class="fa-solid fa-envelope"></i><span>info@saudimarineoffshore.com</span></p>
+              <p class="contact-detail" style="font-size: 1.05rem;"><i class="fa-solid fa-location-dot"></i><span>Road No. 118, Industrial Area No. 1<br>Jubail Industrial City<br>Al Jubail 35717<br>Eastern Province<br>Kingdom of Saudi Arabia</span></p>
             </div>
             <div class="form-card">
               <form id="contactForm">
