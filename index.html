@@ -242,6 +242,29 @@
       .contact-whatsapp {
         background: rgba(11,92,173,.08); color: var(--blue); border: 1px solid rgba(11,92,173,.16);
       }
+      .contact-method {
+        display: flex; align-items: center; justify-content: space-between; gap: .8rem; flex-wrap: wrap;
+        padding: .95rem 1rem; border-radius: 16px; border: 1px solid var(--border);
+        background: linear-gradient(135deg, rgba(11,92,173,.04), rgba(212,175,55,.06));
+      }
+      .contact-method .contact-tag {
+        display: block; font-size: .75rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase;
+        color: var(--gold); margin-bottom: .25rem;
+      }
+      .contact-method .contact-number {
+        font-weight: 700; color: var(--navy);
+      }
+      .contact-method .mini-actions { display: flex; gap: .45rem; flex-wrap: wrap; }
+      .contact-method .mini-actions a {
+        display: inline-flex; align-items: center; justify-content: center; gap: .4rem;
+        padding: .45rem .7rem; border-radius: 999px; font-size: .85rem; font-weight: 700;
+      }
+      .contact-method .mini-actions .call-link {
+        background: var(--navy); color: #fff;
+      }
+      .contact-method .mini-actions .wa-link {
+        background: rgba(37,211,102,.12); color: #128C7E; border: 1px solid rgba(37,211,102,.2);
+      }
       .contact-detail { display: flex; align-items: flex-start; gap: .6rem; margin: .55rem 0; color: var(--muted); }
       .contact-detail i { color: var(--gold); margin-top: .2rem; }
       .split-card {
@@ -1016,11 +1039,27 @@
             <div class="contact-card">
               <h3>Office Details</h3>
               <div class="contact-actions">
-                <a class="contact-call" href="tel:+966596954694"><i class="fa-solid fa-phone"></i> Call Now</a>
-                <a class="contact-whatsapp" href="https://wa.me/966596954694" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> WhatsApp Now</a>
+                <div class="contact-method">
+                  <div>
+                    <span class="contact-tag">Primary Office</span>
+                    <div class="contact-number">+966 59 695 4694</div>
+                  </div>
+                  <div class="mini-actions">
+                    <a class="call-link" href="tel:+966596954694"><i class="fa-solid fa-phone"></i> Call</a>
+                    <a class="wa-link" href="https://wa.me/966596954694" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
+                  </div>
+                </div>
+                <div class="contact-method">
+                  <div>
+                    <span class="contact-tag">Assistant</span>
+                    <div class="contact-number">+971 52 177 0241</div>
+                  </div>
+                  <div class="mini-actions">
+                    <a class="call-link" href="tel:+971521770241"><i class="fa-solid fa-phone"></i> Call</a>
+                    <a class="wa-link" href="https://wa.me/971521770241" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
+                  </div>
+                </div>
               </div>
-              <p class="contact-detail"><i class="fa-solid fa-phone"></i><span><a href="tel:+966596954694">+966 59 695 4694</a></span></p>
-              <p class="contact-detail"><i class="fa-brands fa-whatsapp"></i><span><a href="https://wa.me/966596954694" target="_blank" rel="noopener">+966 59 695 4694</a></span></p>
               <p class="contact-detail"><i class="fa-solid fa-envelope"></i><span>info@saudimarineoffshore.com</span></p>
               <p class="contact-detail" style="font-size: 1.05rem;"><i class="fa-solid fa-location-dot"></i><span>HHGV+5CG Aluraija Al Gharbiyah<br>Riyadh<br>Saudi Arabia</span></p>
               <div style="margin-top: .8rem; border-radius: 16px; overflow: hidden; border: 1px solid var(--border);">
@@ -1108,8 +1147,8 @@
           <div>
             <h4>Contact Information</h4>
             <p><i class="fa-solid fa-location-dot"></i> HHGV+5CG Aluraija Al Gharbiyah<br>Riyadh<br>Saudi Arabia</p>
-            <p><i class="fa-solid fa-phone"></i> <a href="tel:+966596954694">+966 59 695 4694</a></p>
-            <p><i class="fa-brands fa-whatsapp"></i> <a href="https://wa.me/966596954694" target="_blank" rel="noopener">+966 59 695 4694</a></p>
+            <p><i class="fa-solid fa-phone"></i> <a href="tel:+966596954694">+966 59 695 4694</a> · <a href="https://wa.me/966596954694" target="_blank" rel="noopener">WhatsApp</a></p>
+            <p><i class="fa-solid fa-phone"></i> <a href="tel:+971521770241">Assistant: +971 52 177 0241</a> · <a href="https://wa.me/971521770241" target="_blank" rel="noopener">WhatsApp</a></p>
             <p><i class="fa-solid fa-envelope"></i> info@saudimarineoffshore.com</p>
           </div>
         </div>
