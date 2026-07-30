@@ -3,11 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Saudi Marine Offshore | Global Marine & Offshore Recruitment</title>
-    <meta name="description" content="Saudi Marine Offshore provides premium marine, offshore, oil & gas, and energy workforce solutions across the Middle East and international projects." />
+    <title>Saudi Marine Offshore L.L.C | Global Marine & Offshore Recruitment</title>
+    <meta name="description" content="Saudi Marine Offshore L.L.C provides premium marine, offshore, oil & gas, and energy workforce solutions across the Middle East and international projects." />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@600;700;800&family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
     <style>
       :root {
@@ -35,6 +35,23 @@
       }
       a { color: inherit; text-decoration: none; }
       img { max-width: 100%; display: block; }
+      .nav-actions { display: flex; align-items: center; gap: .6rem; margin-left: auto; }
+      .lang-switcher {
+        display: inline-flex; align-items: center; gap: .4rem; border: 1px solid var(--border); background: rgba(255,255,255,.8); color: var(--navy); border-radius: 999px; padding: .5rem .8rem; font-weight: 700; cursor: pointer; transition: all .25s ease;
+      }
+      .lang-switcher:hover { background: rgba(11,92,173,.08); color: var(--blue); transform: translateY(-1px); }
+      .lang-sep { opacity: .6; }
+      body.rtl, body.rtl h1, body.rtl h2, body.rtl h3, body.rtl h4, body.rtl p, body.rtl a, body.rtl button, body.rtl input, body.rtl textarea, body.rtl select {
+        font-family: 'Cairo', 'Inter', sans-serif;
+      }
+      body.rtl { direction: rtl; }
+      body.rtl .topbar .container { flex-direction: row-reverse; }
+      body.rtl .nav-links { flex-direction: row-reverse; }
+      body.rtl .nav-actions { margin-left: 0; margin-right: auto; }
+      body.rtl .hero-actions, body.rtl .hero-badges, body.rtl .pill-row { justify-content: flex-end; }
+      body.rtl .faq-item button { text-align: right; }
+      body.rtl .contact-detail { direction: rtl; }
+      body.rtl .section-head { flex-direction: row-reverse; }
       .container { width: min(1180px, calc(100% - 2rem)); margin: 0 auto; }
       section { padding: 3.2rem 0; }
       h1,h2,h3,h4 { font-family: 'Poppins', sans-serif; color: var(--navy); margin: 0 0 1rem; }
@@ -564,15 +581,20 @@
     <header class="topbar">
       <div class="container">
         <a class="brand" href="#home">
-          <img src="https://i.ibb.co/cKD2Cw98/Chat-GPT-Image-Jul-21-2026-05-06-15-PM.png" alt="Saudi Marine Offshore logo" />
-          <span>Saudi Marine Offshore</span>
+          <img src="https://i.ibb.co/cKD2Cw98/Chat-GPT-Image-Jul-21-2026-05-06-15-PM.png" alt="Saudi Marine Offshore L.L.C logo" />
+          <span>Saudi Marine Offshore L.L.C</span>
         </a>
-        <nav class="nav-links">
-          <a href="#about">About</a>
-          <a href="#services">Services</a>
-          <a href="#vacancies">Vacancies</a>
-          <a href="#contact">Contact</a>
-        </nav>
+        <div class="nav-actions">
+          <button class="lang-switcher" id="langSwitcher" type="button" aria-label="Switch language">
+            <span>EN</span><span class="lang-sep">|</span><span>العربية</span>
+          </button>
+          <nav class="nav-links">
+            <a href="#about" data-i18n="navAbout">About</a>
+            <a href="#services" data-i18n="navServices">Services</a>
+            <a href="#vacancies" data-i18n="navVacancies">Vacancies</a>
+            <a href="#contact" data-i18n="navContact">Contact</a>
+          </nav>
+        </div>
         <button class="menu-toggle" aria-label="Toggle navigation"><i class="fa-solid fa-bars"></i></button>
       </div>
     </header>
@@ -581,28 +603,28 @@
       <section class="hero">
         <div class="container">
           <div>
-            <p class="eyebrow">Global Marine & Offshore Recruitment</p>
-            <h1>Saudi Marine Offshore</h1>
-            <p>Premium recruitment and workforce solutions for marine, offshore, oil & gas, shipbuilding, FPSO, and energy projects across the Middle East and international markets.</p>
+            <p class="eyebrow" data-i18n="heroEyebrow">Global Marine & Offshore Recruitment</p>
+            <h1 data-i18n="heroTitle">Saudi Marine Offshore L.L.C</h1>
+            <p data-i18n="heroText">Premium recruitment and workforce solutions for marine, offshore, oil & gas, shipbuilding, FPSO, and energy projects across the Middle East and international markets.</p>
             <div class="hero-actions">
-              <a href="#vacancies" class="btn btn-primary btn-radar">Explore Vacancies</a>
-              <a href="#contact" class="btn btn-secondary btn-radar">Submit Your CV</a>
+              <a href="#vacancies" class="btn btn-primary btn-radar" data-i18n="heroCta1">Explore Vacancies</a>
+              <a href="#contact" class="btn btn-secondary btn-radar" data-i18n="heroCta2">Submit Your CV</a>
             </div>
             <div class="hero-badges">
-              <span>✓ Offshore Recruitment</span>
-              <span>✓ Oil & Gas</span>
-              <span>✓ Marine Engineering</span>
-              <span>✓ Fast Deployment</span>
+              <span data-i18n="heroBadge1">✓ Offshore Recruitment</span>
+              <span data-i18n="heroBadge2">✓ Oil & Gas</span>
+              <span data-i18n="heroBadge3">✓ Marine Engineering</span>
+              <span data-i18n="heroBadge4">✓ Fast Deployment</span>
             </div>
-            <div class="scroll-indicator"><i class="fa-solid fa-chevron-down"></i> Scroll to explore</div>
+            <div class="scroll-indicator"><i class="fa-solid fa-chevron-down"></i> <span data-i18n="heroScroll">Scroll to explore</span></div>
           </div>
           <aside class="hero-card">
-            <h3>Why industry leaders choose us</h3>
+            <h3 data-i18n="heroCardTitle">Why industry leaders choose us</h3>
             <ul>
-              <li><i class="fa-solid fa-circle-check"></i><span>International offshore project coverage with compliant crew deployment.</span></li>
-              <li><i class="fa-solid fa-circle-check"></i><span>Verified candidates with passports, STCW, BOSIET, and medical records.</span></li>
-              <li><i class="fa-solid fa-circle-check"></i><span>Professional support from shortlist to mobilization and deployment.</span></li>
-              <li><i class="fa-solid fa-circle-check"></i><span>Trusted by employers across marine, drilling, shipyard, and energy sectors.</span></li>
+              <li><i class="fa-solid fa-circle-check"></i><span data-i18n="heroCard1">International offshore project coverage with compliant crew deployment.</span></li>
+              <li><i class="fa-solid fa-circle-check"></i><span data-i18n="heroCard2">Verified candidates with passports, STCW, BOSIET, and medical records.</span></li>
+              <li><i class="fa-solid fa-circle-check"></i><span data-i18n="heroCard3">Professional support from shortlist to mobilization and deployment.</span></li>
+              <li><i class="fa-solid fa-circle-check"></i><span data-i18n="heroCard4">Trusted by employers across marine, drilling, shipyard, and energy sectors.</span></li>
             </ul>
           </aside>
         </div>
@@ -610,11 +632,11 @@
 
       <div class="container" style="margin-top: -2rem; position: relative; z-index: 2;">
         <div class="stats-grid">
-          <div class="stat-card"><strong class="counter" data-target="3500" data-suffix="+">0</strong><span>Crews placed</span></div>
-          <div class="stat-card"><strong class="counter" data-target="25" data-suffix="+">0</strong><span>Countries served</span></div>
-          <div class="stat-card"><strong class="counter" data-target="15" data-suffix="+">0</strong><span>Years experience</span></div>
-          <div class="stat-card"><strong class="counter" data-target="100" data-suffix="%">0</strong><span>Compliance focus</span></div>
-          <div class="stat-card"><strong class="counter" data-target="24" data-suffix="/7">0</strong><span>Recruitment support</span></div>
+          <div class="stat-card"><strong class="counter" data-target="3500" data-suffix="+">0</strong><span data-i18n="stat1">Crews placed</span></div>
+          <div class="stat-card"><strong class="counter" data-target="25" data-suffix="+">0</strong><span data-i18n="stat2">Countries served</span></div>
+          <div class="stat-card"><strong class="counter" data-target="15" data-suffix="+">0</strong><span data-i18n="stat3">Years experience</span></div>
+          <div class="stat-card"><strong class="counter" data-target="100" data-suffix="%">0</strong><span data-i18n="stat4">Compliance focus</span></div>
+          <div class="stat-card"><strong class="counter" data-target="24" data-suffix="/7">0</strong><span data-i18n="stat5">Recruitment support</span></div>
         </div>
       </div>
 
@@ -622,18 +644,18 @@
         <div class="container">
           <div class="section-head">
             <div>
-              <p class="eyebrow">Company Overview</p>
-              <h2>Premium recruitment solutions for the global marine and offshore workforce</h2>
+              <p class="eyebrow" data-i18n="aboutEyebrow">Company Overview</p>
+              <h2 data-i18n="aboutTitle">Premium recruitment solutions for the global marine and offshore workforce</h2>
             </div>
           </div>
           <div class="overview-grid">
             <div class="card">
-              <h3>About Saudi Marine Offshore</h3>
-              <p>Saudi Marine Offshore is a professional recruitment partner specializing in marine, offshore, engineering, oil & gas, and EPC projects. We support employers and candidates with efficient staffing, compliance management, and fast mobilization across regional and international operations.</p>
-              <p>Our strength lies in understanding vessel operations, offshore safety, and the technical workforce required for complex energy projects.</p>
+              <h3 data-i18n="aboutCardTitle">About Saudi Marine Offshore L.L.C</h3>
+              <p data-i18n="aboutCardText1">Saudi Marine Offshore L.L.C is a professional recruitment partner specializing in marine, offshore, engineering, oil & gas, and EPC projects. We support employers and candidates with efficient staffing, compliance management, and fast mobilization across regional and international operations.</p>
+              <p data-i18n="aboutCardText2">Our strength lies in understanding vessel operations, offshore safety, and the technical workforce required for complex energy projects.</p>
             </div>
             <div class="quote-box">
-              <p style="font-size: 1.05rem;"><strong>Our mission</strong> is to connect capable professionals with opportunities that keep offshore and marine operations safe, efficient, and future-ready.</p>
+              <p style="font-size: 1.05rem;"><strong data-i18n="quoteLabel">Our mission</strong> <span data-i18n="quoteText">is to connect capable professionals with opportunities that keep offshore and marine operations safe, efficient, and future-ready.</span></p>
             </div>
           </div>
         </div>
@@ -643,22 +665,22 @@
         <div class="container">
           <div class="section-head">
             <div>
-              <p class="eyebrow">Our Strength</p>
-              <h2>Vision, mission, and values driving every placement</h2>
+              <p class="eyebrow" data-i18n="strengthEyebrow">Our Strength</p>
+              <h2 data-i18n="strengthTitle">Vision, mission, and values driving every placement</h2>
             </div>
           </div>
           <div class="grid-3">
             <div class="card">
-              <h3>Vision</h3>
-              <p>To become the preferred workforce partner for marine and offshore operations across the Middle East and global energy markets.</p>
+              <h3 data-i18n="visionTitle">Vision</h3>
+              <p data-i18n="visionText">To become the preferred workforce partner for marine and offshore operations across the Middle East and global energy markets.</p>
             </div>
             <div class="card">
-              <h3>Mission</h3>
-              <p>To deliver skilled, compliant, and dependable manpower solutions that support safe and successful project execution.</p>
+              <h3 data-i18n="missionTitle">Mission</h3>
+              <p data-i18n="missionText">To deliver skilled, compliant, and dependable manpower solutions that support safe and successful project execution.</p>
             </div>
             <div class="card">
-              <h3>Core Values</h3>
-              <p>Safety, integrity, reliability, professionalism, and long-term partnership.</p>
+              <h3 data-i18n="valuesTitle">Core Values</h3>
+              <p data-i18n="valuesText">Safety, integrity, reliability, professionalism, and long-term partnership.</p>
             </div>
           </div>
         </div>
@@ -668,26 +690,26 @@
         <div class="container">
           <div class="section-head">
             <div>
-              <p class="eyebrow">Why Choose Us</p>
-              <h2>Trusted for safety, compliance, engineering expertise, and rapid mobilization</h2>
+              <p class="eyebrow" data-i18n="whyEyebrow">Why Choose Us</p>
+              <h2 data-i18n="whyTitle">Trusted for safety, compliance, engineering expertise, and rapid mobilization</h2>
             </div>
           </div>
           <div class="grid-4">
             <div class="card">
-              <h3>Global Reach</h3>
-              <p>We support offshore and marine operations across multiple regions with experienced recruitment teams.</p>
+              <h3 data-i18n="why1Title">Global Reach</h3>
+              <p data-i18n="why1Text">We support offshore and marine operations across multiple regions with experienced recruitment teams.</p>
             </div>
             <div class="card">
-              <h3>Compliance Focus</h3>
-              <p>Every candidate is reviewed for technical qualifications, certifications, and document readiness.</p>
+              <h3 data-i18n="why2Title">Compliance Focus</h3>
+              <p data-i18n="why2Text">Every candidate is reviewed for technical qualifications, certifications, and document readiness.</p>
             </div>
             <div class="card">
-              <h3>Safety-Driven</h3>
-              <p>Our placements are aligned with operational safety standards required in offshore energy projects.</p>
+              <h3 data-i18n="why3Title">Safety-Driven</h3>
+              <p data-i18n="why3Text">Our placements are aligned with operational safety standards required in offshore energy projects.</p>
             </div>
             <div class="card">
-              <h3>Fast Deployment</h3>
-              <p>We help employers mobilize qualified crews quickly without compromising quality or compliance.</p>
+              <h3 data-i18n="why4Title">Fast Deployment</h3>
+              <p data-i18n="why4Text">We help employers mobilize qualified crews quickly without compromising quality or compliance.</p>
             </div>
           </div>
         </div>
@@ -697,49 +719,49 @@
         <div class="container">
           <div class="section-head">
             <div>
-              <p class="eyebrow">Our Services</p>
-              <h2>Specialized recruitment services for marine, offshore, and energy sectors</h2>
+              <p class="eyebrow" data-i18n="servicesEyebrow">Our Services</p>
+              <h2 data-i18n="servicesTitle">Specialized recruitment services for marine, offshore, and energy sectors</h2>
             </div>
           </div>
           <div class="services-grid">
             <div class="card service-card">
               <i class="fa-solid fa-anchor"></i>
-              <h3>Marine Recruitment</h3>
+              <h3 data-i18n="service1Title">Marine Recruitment</h3>
               <ul>
-                <li>Vessel crew</li>
-                <li>Marine engineers</li>
-                <li>Deck officers</li>
-                <li>Ports and terminals</li>
+                <li data-i18n="service1Item1">Vessel crew</li>
+                <li data-i18n="service1Item2">Marine engineers</li>
+                <li data-i18n="service1Item3">Deck officers</li>
+                <li data-i18n="service1Item4">Ports and terminals</li>
               </ul>
             </div>
             <div class="card service-card">
               <i class="fa-solid fa-ship"></i>
-              <h3>Offshore Recruitment</h3>
+              <h3 data-i18n="service2Title">Offshore Recruitment</h3>
               <ul>
-                <li>Rig crew</li>
-                <li>Offshore supervisors</li>
-                <li>Production teams</li>
-                <li>Maintenance specialists</li>
+                <li data-i18n="service2Item1">Rig crew</li>
+                <li data-i18n="service2Item2">Offshore supervisors</li>
+                <li data-i18n="service2Item3">Production teams</li>
+                <li data-i18n="service2Item4">Maintenance specialists</li>
               </ul>
             </div>
             <div class="card service-card">
               <i class="fa-solid fa-gas-pump"></i>
-              <h3>Oil & Gas</h3>
+              <h3 data-i18n="service3Title">Oil & Gas</h3>
               <ul>
-                <li>Drilling</li>
-                <li>Pipeline</li>
-                <li>Instrumentation</li>
-                <li>Electrical & mechanical</li>
+                <li data-i18n="service3Item1">Drilling</li>
+                <li data-i18n="service3Item2">Pipeline</li>
+                <li data-i18n="service3Item3">Instrumentation</li>
+                <li data-i18n="service3Item4">Electrical & mechanical</li>
               </ul>
             </div>
             <div class="card service-card">
               <i class="fa-solid fa-hard-hat"></i>
-              <h3>Shipyard & EPC</h3>
+              <h3 data-i18n="service4Title">Shipyard & EPC</h3>
               <ul>
-                <li>Fabrication</li>
-                <li>Welding</li>
-                <li>Insulation</li>
-                <li>Shutdown projects</li>
+                <li data-i18n="service4Item1">Fabrication</li>
+                <li data-i18n="service4Item2">Welding</li>
+                <li data-i18n="service4Item3">Insulation</li>
+                <li data-i18n="service4Item4">Shutdown projects</li>
               </ul>
             </div>
           </div>
@@ -1000,7 +1022,18 @@
               <p class="contact-detail"><i class="fa-solid fa-phone"></i><span><a href="tel:+971507469003">+971 50 746 9003</a></span></p>
               <p class="contact-detail"><i class="fa-brands fa-whatsapp"></i><span><a href="https://wa.me/971507469003" target="_blank" rel="noopener">+971 50 746 9003</a></span></p>
               <p class="contact-detail"><i class="fa-solid fa-envelope"></i><span>info@saudimarineoffshore.com</span></p>
-              <p class="contact-detail" style="font-size: 1.05rem;"><i class="fa-solid fa-location-dot"></i><span>Road No. 118, Industrial Area No. 1<br>Jubail Industrial City<br>Al Jubail 35717<br>Eastern Province<br>Kingdom of Saudi Arabia</span></p>
+              <p class="contact-detail" style="font-size: 1.05rem;"><i class="fa-solid fa-location-dot"></i><span>HHGV+5CG Aluraija Al Gharbiyah<br>Riyadh<br>Saudi Arabia</span></p>
+              <div style="margin-top: .8rem; border-radius: 16px; overflow: hidden; border: 1px solid var(--border);">
+                <iframe
+                  title="Saudi Marine Offshore Location"
+                  src="https://www.google.com/maps?q=HHGV%2B5CG%20Aluraija%20Al%20Gharbiyah%20Riyadh%20Saudi%20Arabia&z=14&output=embed"
+                  width="100%"
+                  height="240"
+                  style="border:0;"
+                  loading="lazy"
+                  referrerpolicy="no-referrer-when-downgrade"
+                ></iframe>
+              </div>
             </div>
             <div class="form-card">
               <form id="contactForm">
@@ -1046,7 +1079,7 @@
         <div class="footer-grid">
           <div>
             <h4>Company Overview</h4>
-            <p>Saudi Marine Offshore provides premium recruitment and workforce solutions for marine, offshore, oil & gas, engineering, and global energy operations.</p>
+            <p>Saudi Marine Offshore L.L.C provides premium recruitment and workforce solutions for marine, offshore, oil & gas, engineering, and global energy operations.</p>
           </div>
           <div>
             <h4>Quick Navigation</h4>
@@ -1074,7 +1107,7 @@
           </div>
           <div>
             <h4>Contact Information</h4>
-            <p><i class="fa-solid fa-location-dot"></i> Road No. 118, Industrial Area No. 1<br>Jubail Industrial City<br>Al Jubail 35717<br>Eastern Province<br>Kingdom of Saudi Arabia</p>
+            <p><i class="fa-solid fa-location-dot"></i> HHGV+5CG Aluraija Al Gharbiyah<br>Riyadh<br>Saudi Arabia</p>
             <p><i class="fa-solid fa-phone"></i> <a href="tel:+971507469003">+971 50 746 9003</a></p>
             <p><i class="fa-brands fa-whatsapp"></i> <a href="https://wa.me/971507469003" target="_blank" rel="noopener">+971 50 746 9003</a></p>
             <p><i class="fa-solid fa-envelope"></i> info@saudimarineoffshore.com</p>
